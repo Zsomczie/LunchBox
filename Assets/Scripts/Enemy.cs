@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,42 +26,86 @@ public class Enemy : MonoBehaviour
     // general private variables
 
     private Coroutine currentAttack;
+    private Coroutine currentMovementDelay;
     private PlayerController playerController;
+    private NavMeshAgent navMeshAgent;
 
 
     void Awake()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
 
+        SetNewDestination();
+        currentMovementDelay = StartCoroutine(DestinationChangeDelay());
     }
 
     void Update()
     {
-        if (!isAttacking)
+        if(!isAttacking)
+        {
+            DetectPlayer();
+        }
+
+        /*if (!isAttacking)
         {
             if (!isMoving && !onIdle)
             {
-                targetPosition = new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), Random.Range(transform.position.y - 2, transform.position.y + 2));
+                //targetPosition = new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), Random.Range(transform.position.y - 2, transform.position.y + 2));
                 isMoving = true;
             }
 
             else if (isMoving)
             {
                 DetectPlayer();
-                Move();
+                SetNewDestination();
             }
-        }
+        }*/
     }
 
-    private void Move()
+    private void SetNewDestination()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        navMeshAgent.SetDestination(new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f)));
+
+        Debug.Log("new destination");
+
+        /*transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
         if(transform.position == targetPosition)
         {
             onIdle = true;
             isMoving = false;
             StartCoroutine(Idle());
-        }
+        }*/
+    }
+
+    private IEnumerator DestinationChangeDelay()
+    {
+        yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
+
+        navMeshAgent.isStopped = true;
+
+        yield return new WaitForSeconds(2f);
+
+        SetNewDestination();
+        navMeshAgent.isStopped = false;
+
+        currentMovementDelay = StartCoroutine(AlternativeDestinationChangeDelay());
+    }
+
+    private IEnumerator AlternativeDestinationChangeDelay()
+    {
+        yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
+
+        navMeshAgent.isStopped = true;
+
+        yield return new WaitForSeconds(2f);
+
+        SetNewDestination();
+        navMeshAgent.isStopped = false;
+
+        currentMovementDelay = StartCoroutine(DestinationChangeDelay());
     }
 
     private void DetectPlayer()
@@ -72,9 +117,12 @@ public class Enemy : MonoBehaviour
             Debug.Log("player has been detected");
             player = playerCollider.gameObject;
             playerController = player.GetComponent<PlayerController>();
+            transform.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             playerDetected = true;
             isAttacking = true;
+            StopCoroutine(currentMovementDelay);
             currentAttack = StartCoroutine(CarrotAttack());
+            navMeshAgent.isStopped = true;
         }
     }
 
@@ -82,12 +130,16 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
+        navMeshAgent.isStopped = false;
         Debug.Log("start attacking");
+        targetPosition = player.transform.position;
 
         while (isAttacking)
         {
             targetPosition = player.transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, 20 * Time.deltaTime);
+            navMeshAgent.SetDestination(targetPosition);
+
+            Debug.Log("attackmove");
 
             if (closeEnoughToAttack)
             {
