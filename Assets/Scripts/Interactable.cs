@@ -6,10 +6,13 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] private bool IsActiveNow = false;
     public bool pickedup = false;
+    PlayerController player;
+    Door door;
     // Use this for initialization
     void Start()
     {
-
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        door = GameObject.Find("Door").GetComponent<Door>();
     }
 
     // Update is called once per frame
@@ -20,14 +23,20 @@ public class Interactable : MonoBehaviour
         {
             Debug.Log(gameObject.name);
             pickedup = true;
-            GameObject.Find("Player").GetComponent<PlayerController>().health++;
+            player.health++;
             Destroy(gameObject);
         }
-        if (Input.GetKeyDown(KeyCode.E) && IsActiveNow && !pickedup && gameObject.transform.name.Contains("Coin") /*&& GameObject.Find("Player").GetComponent<PlayerController>().health < 6*/)
+        if (Input.GetKeyDown(KeyCode.E) && IsActiveNow && !pickedup && gameObject.transform.name.Contains("Key") /*&& GameObject.Find("Player").GetComponent<PlayerController>().health < 6*/)
         {
             Debug.Log(gameObject.name);
             pickedup = true;
-            GameObject.Find("Player").GetComponent<PlayerController>().money++;
+            player.keys++;
+            Destroy(gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.E) && IsActiveNow && !pickedup && gameObject.transform.name.Contains("Door")&&player.keys>0 /*&& GameObject.Find("Player").GetComponent<PlayerController>().health < 6*/)
+        {
+            door.isLocked = false;
+            player.keys--;
             Destroy(gameObject);
         }
     }

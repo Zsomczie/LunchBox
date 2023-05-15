@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Vector2 speed = new Vector2(5, 5);
     public int health = 6;
     public bool invincible;
-    public int money;
+    public int keys;
     // variable to hold a reference to our SpriteRenderer component
     private SpriteRenderer Player;
 
