@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49ffd3c0ceb82c4b96b1c521c5cdda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 2
+  enemyType: 4
   moveSpeed: 50
   lastVelocity: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
@@ -265,6 +265,7 @@ MonoBehaviour:
   isRecharging: 0
   isAttacking: 0
   damage: 1
+  health: 0
   rb: {fileID: 0}
 --- !u!50 &3523738284353955038
 Rigidbody2D:
