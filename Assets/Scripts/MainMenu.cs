@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]GameObject MainMenuMusic;
+    public Sprite ClassySprite;
+    public Sprite FancySprite;
+    [SerializeField] GameObject Player;
     public void playGame()
     {
 
@@ -14,6 +17,7 @@ public class MainMenu : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             DestroyImmediate(MainMenuMusic);
+            Destroy(MainMenuMusic);
             SceneManager.LoadScene(1);
         }
         StartCoroutine(playMenu());
@@ -60,4 +64,32 @@ public class MainMenu : MonoBehaviour
         }
         StartCoroutine(characterMenu());
     }
+
+    public void Classy()
+    {
+
+        Player.GetComponent<SpriteRenderer>().sprite = ClassySprite;
+
+        IEnumerator backMenu()
+        {
+            yield return new WaitForSeconds(1f);
+            //SceneManager.LoadScene(0);
+        }
+        StartCoroutine(backMenu());
+    }
+
+    public void Fancy()
+    {
+
+        Player.GetComponent<SpriteRenderer>().sprite = FancySprite;
+
+        IEnumerator backMenu()
+        {
+            yield return new WaitForSeconds(1f);
+            //SceneManager.LoadScene(0);
+        }
+        StartCoroutine(backMenu());
+    }
+
+
 }

@@ -1095,7 +1095,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 824768264}
-  - component: {fileID: 824768265}
   m_Layer: 5
   m_Name: MainSFX
   m_TagString: Untagged
@@ -1125,18 +1124,6 @@ RectTransform:
   m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &824768265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824768263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b53f2005dfe05d4987f497c0bdee078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &827707571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1471,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuMusic: {fileID: 1414413856}
+  ClassySprite: {fileID: 0}
+  FancySprite: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1 &1065902449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1793,7 @@ GameObject:
   - component: {fileID: 1414413857}
   - component: {fileID: 1414413859}
   - component: {fileID: 1414413858}
+  - component: {fileID: 1414413860}
   m_Layer: 5
   m_Name: Sound
   m_TagString: GameSound
@@ -1938,6 +1929,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1414413860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414413856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b53f2005dfe05d4987f497c0bdee078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1417820452
 GameObject:
   m_ObjectHideFlags: 0
