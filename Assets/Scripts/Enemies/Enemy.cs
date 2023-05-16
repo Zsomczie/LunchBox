@@ -21,13 +21,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damage;
 
     [Header("Health")]
-    public float currentHealth;
+    public float Health;
 
 
     [Header("For Broccoli Only")]
     [SerializeField] private GameObject kidPrefab;
     [SerializeField] private GameObject babyPrefab;
     [SerializeField] private Transform kidSpawnPoint;
+    private string currentState;
     // general private variables
 
     private Coroutine currentAttack;
@@ -35,13 +36,16 @@ public class Enemy : MonoBehaviour
     private PlayerController playerController;
     private NavMeshAgent navMeshAgent;
 
+    //for damage taking purposes
+    private Shooting shooting;
+
 
     void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-
+        shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         if (enemyType == EnemyType.carrot)
         {
             SetNewDestination();
@@ -62,6 +66,21 @@ public class Enemy : MonoBehaviour
                 navMeshAgent.isStopped = true;
                 StartCoroutine(SpottingDelayAfterPlayerDetection());
             }
+        }
+        if (gameObject.name.Contains("Parent")|| gameObject.name.Contains("Carrot"))
+        {
+            Health = 4;
+            currentState = "Kid";
+        }
+        else if (gameObject.name.Contains("Kid"))
+        {
+            Health = 2;
+            currentState = "Baby";
+        }
+        else if (gameObject.name.Contains("Baby"))
+        {
+            Health = 1;
+            currentState = "Dying";
         }
     }
 
@@ -216,13 +235,14 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth -= 10f; // CHANGE THIS TO MATCH THE WEAPON DAMAGE!!!!!
+        Health-=shooting.equippedWeapon.damage; // CHANGE THIS TO MATCH THE WEAPON DAMAGE!!!!!
 
-        if(currentHealth <= 0)
+        if(Health <= 0)
         {
             switch (enemyType)
             {
                 case EnemyType.carrot:
+                    Destroy(gameObject);
                     // death animation here!!
                     break;
 
@@ -335,11 +355,13 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player") && isAttacking)
         {
             closeEnoughToAttack = true;
+            DealDamage();
         }
 
         if (collision.gameObject.name.Contains("Bullet"))
         {
             TakeDamage();
+            Destroy(collision.gameObject);
         }
     }
 

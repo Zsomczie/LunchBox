@@ -17,5 +17,10 @@ public class CabbagePlayerDetection : MonoBehaviour
         {
             enemyCabbage.DealDamage();
         }
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            enemyCabbage.TakeDamage();
+            Destroy(collision.gameObject);
+        }
     }
 }

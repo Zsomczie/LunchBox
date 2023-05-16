@@ -23,11 +23,12 @@ public class EnemyCabbage : MonoBehaviour
     [SerializeField] private int damage;
 
     [Header("Health")]
-    public float currentHealth;
+    public float Health=10;
 
     // general private variables
     private PlayerController playerController;
     private Coroutine restartCoroutine;
+    private Shooting shooting;
 
     [Header("For Script References Only")]
     public Rigidbody2D rb;
@@ -36,7 +37,7 @@ public class EnemyCabbage : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         //SetNewDestination();
         //currentMovementDelay = StartCoroutine(DestinationChangeDelay());
     }
@@ -111,8 +112,10 @@ public class EnemyCabbage : MonoBehaviour
     {
         // attack animation here!!
 
-        playerController.health =- damage;
+
         isRolling = false;
+        playerController.health -= damage;
+        Debug.Log("Deal damage");
         rb.velocity = Vector2.zero;
 
         if (restartCoroutine == null)
@@ -124,7 +127,11 @@ public class EnemyCabbage : MonoBehaviour
 
     public void TakeDamage()
     {
-        currentHealth -= 10f; // CHANGE THIS TO MATCH THE WEAPON DAMAGE !!
+        Health -= shooting.equippedWeapon.damage;
+        if (Health<=0)
+        {
+            Destroy(gameObject);
+        }// CHANGE THIS TO MATCH THE WEAPON DAMAGE !!
     }
 
     public IEnumerator RestartAttack()

@@ -35,12 +35,13 @@ public class Shooting : MonoBehaviour
     public bool canFire=true;
     private float timer;
     public float timeBetweenFiring= 0.5f;
-    public int weaponNumber;
+    public int weaponNumber=2;
     public List<weaponData> weaponDatas = new List<weaponData>();
     public weaponData equippedWeapon;
     public int currentMagAmmo;
     public bool reloading;
     public bool empty=false;
+    Quaternion offset = Quaternion.Euler(0, 0, 30);
     // Start is called before the first frame update
     void Start()
     {
