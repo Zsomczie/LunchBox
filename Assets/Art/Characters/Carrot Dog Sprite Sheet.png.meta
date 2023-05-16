@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e7ba3b51c643c89478c994e0a107eeae
+guid: d5345d772f5395d41b5208bbb87fcabd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,10 +44,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,8 +67,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
-    resizeAlgorithm: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Smooth walls wip_0
+      name: Carrot Dog Sprite Sheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 32
-        height: 32
+        y: 256
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 966d1956081ca2c42be730b0d301a332
-      internalID: -1649344582
+      spriteID: 3cda0f62961947045b5192fe265e600d
+      internalID: -1606613051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_1
+      name: Carrot Dog Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
+        x: 128
+        y: 256
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a0452a80965d1f41b20b547dcdae2b6
-      internalID: -21409608
+      spriteID: 3cc62aad0b281824bacd2d9b60c306ae
+      internalID: -356932922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_2
+      name: Carrot Dog Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
+        x: 256
+        y: 256
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc2c4050f14485d458cdff3424c92c88
-      internalID: 1550621880
+      spriteID: a78a0fae5d0c5b145971d4165ee52b47
+      internalID: -862346445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_3
+      name: Carrot Dog Sprite Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 32
-        height: 32
+        x: 384
+        y: 256
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,188 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c30c6bb49db9a4bb56fc06386e98ca
-      internalID: 1155928492
+      spriteID: 2d946ebdce6385543af7803db2f41964
+      internalID: 1387454434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_4
+      name: Carrot Dog Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6581f466b0d744fa342c3726c1c374
+      internalID: 697679322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f282752e156274c83567624b0a4301
+      internalID: -2039839440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27d5de644da7bf4697c6895ce4034e1
+      internalID: -342247991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ad060e27a96d04ab681f523b02337d
+      internalID: 221625218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf7c590ec14458944a38f0782991b67b
+      internalID: -536867691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f194b5752767d2247a6318a2e83dfd02
+      internalID: -1824166964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635fefa2ee311894bbb2b24c494a6acc
+      internalID: -1125039685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e387e438b10d341b500841a45655b1
+      internalID: -13872206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Carrot Dog Sprite Sheet_12
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851269e6632ee5845b2fa907b8e378cc
-      internalID: -201950612
+      spriteID: d1735afd666c63049bf5405a54875e48
+      internalID: -670431897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_5
+      name: Carrot Dog Sprite Sheet_13
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 64
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +392,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a0fb408650ce2b48ac98b563643154e
-      internalID: 57623763
+      spriteID: ef76d35413506084bb73514a2e1b1e6a
+      internalID: 1273215602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_6
+      name: Carrot Dog Sprite Sheet_14
       rect:
         serializedVersion: 2
-        x: 96
+        x: 256
         y: 64
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +413,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f85fe16b5f18d904c9dc0aa39e8b82b9
-      internalID: 207334227
+      spriteID: eabfa4d4076289d4faecdca942ab72c2
+      internalID: 1518521961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_7
+      name: Carrot Dog Sprite Sheet_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
+        x: 384
+        y: 64
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,41 +434,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2775d00165f8b46beb86f00d29f2f8
-      internalID: 800067093
+      spriteID: ce5b2cff756b14d408cbca73fc08fa8b
+      internalID: -2127079252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_8
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 780f50056ee899d4ab1046279331ce39
-      internalID: -1155054850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Smooth walls wip_9
+      name: Carrot Dog Sprite Sheet_16
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +455,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 407ddb3a31e1c064ea48bc464c7ed9d7
-      internalID: 1598557845
+      spriteID: 5a0538cfe864bdd49b0fd9219cccb654
+      internalID: 1177257755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_10
+      name: Carrot Dog Sprite Sheet_17
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +476,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76d5ecf60b89f3149a691004c1f33e08
-      internalID: -502684814
+      spriteID: 1a68037b6c416c44cb2adbdeec3826a7
+      internalID: 1495885177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_11
+      name: Carrot Dog Sprite Sheet_18
       rect:
         serializedVersion: 2
-        x: 64
+        x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,20 +497,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf87e7adf02b42545a356a6b22bf6123
-      internalID: 1922452339
+      spriteID: 1e9167063a50ce04694173d43131cc11
+      internalID: -583131149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_12
+      name: Carrot Dog Sprite Sheet_19
       rect:
         serializedVersion: 2
-        x: 96
+        x: 384
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,8 +518,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f48b143e934de804e84e7cb514975e5c
-      internalID: -1464209011
+      spriteID: 12b643f7a959f7148a1e62fc8ccbba29
+      internalID: -699283377
       vertices: []
       indices: 
       edges: []
@@ -388,19 +535,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Smooth walls wip_0: -1649344582
-      Smooth walls wip_1: -21409608
-      Smooth walls wip_10: -502684814
-      Smooth walls wip_11: 1922452339
-      Smooth walls wip_12: -1464209011
-      Smooth walls wip_2: 1550621880
-      Smooth walls wip_3: 1155928492
-      Smooth walls wip_4: -201950612
-      Smooth walls wip_5: 57623763
-      Smooth walls wip_6: 207334227
-      Smooth walls wip_7: 800067093
-      Smooth walls wip_8: -1155054850
-      Smooth walls wip_9: 1598557845
+      Carrot Dog Sprite Sheet_0: -1606613051
+      Carrot Dog Sprite Sheet_1: -356932922
+      Carrot Dog Sprite Sheet_10: -1125039685
+      Carrot Dog Sprite Sheet_11: -13872206
+      Carrot Dog Sprite Sheet_12: -670431897
+      Carrot Dog Sprite Sheet_13: 1273215602
+      Carrot Dog Sprite Sheet_14: 1518521961
+      Carrot Dog Sprite Sheet_15: -2127079252
+      Carrot Dog Sprite Sheet_16: 1177257755
+      Carrot Dog Sprite Sheet_17: 1495885177
+      Carrot Dog Sprite Sheet_18: -583131149
+      Carrot Dog Sprite Sheet_19: -699283377
+      Carrot Dog Sprite Sheet_2: -862346445
+      Carrot Dog Sprite Sheet_3: 1387454434
+      Carrot Dog Sprite Sheet_4: 697679322
+      Carrot Dog Sprite Sheet_5: -2039839440
+      Carrot Dog Sprite Sheet_6: -342247991
+      Carrot Dog Sprite Sheet_7: 221625218
+      Carrot Dog Sprite Sheet_8: -536867691
+      Carrot Dog Sprite Sheet_9: -1824166964
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
