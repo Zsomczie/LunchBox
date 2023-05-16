@@ -1,0 +1,3 @@
+Lemon	beam	1000	1000	0	0.5	1	1000
+Starfruit	throwing	1	50	0.7	2	0.5	1
+Banana	auto	10	0	0.3	1	1	10
