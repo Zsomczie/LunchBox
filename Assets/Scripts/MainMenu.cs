@@ -6,40 +6,39 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]GameObject MainMenuMusic;
-    bool destroyed = false;
     public void playGame()
     {
 
-        IEnumerator characterMenu()
+        IEnumerator playMenu()
         {
 
             yield return new WaitForSeconds(1f);
             DestroyImmediate(MainMenuMusic);
             SceneManager.LoadScene(1);
         }
-        StartCoroutine(characterMenu());
+        StartCoroutine(playMenu());
 
     }
     public void back()
     {
-        IEnumerator characterMenu()
+        IEnumerator backMenu()
         {
             yield return new WaitForSeconds(1f);
             SceneManager.LoadScene(0);
         }
-        StartCoroutine(characterMenu());
+        StartCoroutine(backMenu());
 
     }
 
     public void quitGame()
     {
 
-        IEnumerator characterMenu()
+        IEnumerator quitGame()
         {
             yield return new WaitForSeconds(1f);
             Application.Quit();
         }
-        StartCoroutine(characterMenu());
+        StartCoroutine(quitGame());
 
     }
 

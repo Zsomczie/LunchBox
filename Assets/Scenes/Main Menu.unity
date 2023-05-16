@@ -416,7 +416,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529785222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23736f545102ebc4f9e853dc3b98e31b, type: 3}
   m_Name: 
@@ -1803,7 +1803,6 @@ GameObject:
   - component: {fileID: 1414413857}
   - component: {fileID: 1414413859}
   - component: {fileID: 1414413858}
-  - component: {fileID: 1414413860}
   m_Layer: 5
   m_Name: Sound
   m_TagString: GameSound
@@ -1939,18 +1938,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1414413860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414413856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b53f2005dfe05d4987f497c0bdee078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1417820452
 GameObject:
   m_ObjectHideFlags: 0
