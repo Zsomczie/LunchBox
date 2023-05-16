@@ -22,6 +22,9 @@ public class EnemyCabbage : MonoBehaviour
     public bool isAttacking;
     [SerializeField] private int damage;
 
+    [Header("Health")]
+    public float currentHealth;
+
     // general private variables
     private PlayerController playerController;
     private Coroutine restartCoroutine;
@@ -117,6 +120,11 @@ public class EnemyCabbage : MonoBehaviour
             StartCoroutine(RestartAttack());
             Debug.Log("restart after damage");
         }
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth -= 10f; // CHANGE THIS TO MATCH THE WEAPON DAMAGE !!
     }
 
     public IEnumerator RestartAttack()
