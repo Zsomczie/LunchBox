@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCarrot : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [Header("General Info")]
     [SerializeField] private EnemyType enemyType;
@@ -20,6 +20,14 @@ public class EnemyCarrot : MonoBehaviour
     [SerializeField] private bool isAttacking;
     [SerializeField] private int damage;
 
+    [Header("Health")]
+    public float currentHealth;
+
+
+    [Header("For Broccoli Only")]
+    [SerializeField] private GameObject kidPrefab;
+    [SerializeField] private GameObject babyPrefab;
+    [SerializeField] private Transform kidSpawnPoint;
     // general private variables
 
     private Coroutine currentAttack;
@@ -34,13 +42,37 @@ public class EnemyCarrot : MonoBehaviour
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
 
-        SetNewDestination();
-        currentMovementDelay = StartCoroutine(DestinationChangeDelay());
+        if (enemyType == EnemyType.carrot)
+        {
+            SetNewDestination();
+            currentMovementDelay = StartCoroutine(DestinationChangeDelay());
+        }
+
+        else if (enemyType == EnemyType.broccoliParent || enemyType == EnemyType.broccoliKid || enemyType == EnemyType.broccoliBaby)
+        {
+            // instantly make the broccoli kids and babies to attack towards player
+            Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, 30f, LayerMask.GetMask("Player"));
+
+            if (playerCollider != null)
+            {
+                player = playerCollider.gameObject;
+                playerController = player.GetComponent<PlayerController>();
+                playerDetected = true;
+                isAttacking = true;
+                navMeshAgent.isStopped = true;
+                StartCoroutine(SpottingDelayAfterPlayerDetection());
+            }
+        }
     }
 
     void Update()
     {
-        if(!isAttacking)
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            TakeDamage();
+        }
+
+        if(!isAttacking && enemyType == EnemyType.carrot)
         {
             DetectPlayer();
         }
@@ -116,10 +148,10 @@ public class EnemyCarrot : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        currentAttack = StartCoroutine(CarrotAttack());
+        currentAttack = StartCoroutine(Attack());
     }
 
-    IEnumerator CarrotAttack()
+    private IEnumerator Attack()
     {
         // delay between each attack, can later be removed if needed
         yield return new WaitForSeconds(1f);
@@ -131,7 +163,33 @@ public class EnemyCarrot : MonoBehaviour
 
         while (isAttacking)
         {
+            targetPosition = player.transform.position;
+            navMeshAgent.SetDestination(targetPosition);
 
+            // possible animation flips here!!
+
+            if (closeEnoughToAttack)
+            {
+                DealDamage();
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    private IEnumerator BroccoliAttack()
+    {
+        // delay between each attack, can later be removed if needed
+        yield return new WaitForSeconds(1f);
+
+        navMeshAgent.isStopped = false;
+        targetPosition = player.transform.position;
+
+        // charge animation here!!
+
+        while (isAttacking)
+        {
             targetPosition = player.transform.position;
             navMeshAgent.SetDestination(targetPosition);
 
@@ -151,9 +209,85 @@ public class EnemyCarrot : MonoBehaviour
     {
         // attack animation here!!
 
-        playerController.health =- damage;
+        playerController.health -= damage;
         //StartCoroutine(Retreat());
         RestartAttack();
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth -= 10f; // CHANGE THIS TO MATCH THE WEAPON DAMAGE!!!!!
+
+        if(currentHealth <= 0)
+        {
+            switch (enemyType)
+            {
+                case EnemyType.carrot:
+                    // death animation here!!
+                    break;
+
+                case EnemyType.broccoliParent:
+                    int kidsToSpawn = 2;
+
+                    for (int i = 0; i < kidsToSpawn; i++)
+                    {
+                        SpawnNextBroccoliState("kid", i);
+                    }
+                    Destroy(gameObject);
+                    break;
+
+                case EnemyType.broccoliKid:
+                    int babysToSpawn = 2;
+
+                    for (int i = 0; i < babysToSpawn; i++)
+                    {
+                        SpawnNextBroccoliState("baby", i);
+                    }
+                    Destroy(gameObject);
+                    break;
+
+                case EnemyType.broccoliBaby:
+                    Destroy(gameObject);
+                    break;
+
+                default:
+                    Debug.LogError("No enemy type assigned for " + gameObject.name + ", can't be destroyed!");
+                    break;
+            }
+        }
+    }
+
+    private void SpawnNextBroccoliState(string state, int index)
+    {
+        switch (state)
+        {
+            case "kid":
+                if(index == 0)
+                {
+                    Instantiate(kidPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
+                }
+
+                else
+                {
+                    Instantiate(kidPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
+                }
+
+                break;
+            case "baby":
+                if (index == 0)
+                {
+                    Instantiate(babyPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
+                }
+
+                else
+                {
+                    Instantiate(babyPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
+                }
+                break;
+            default:
+                Debug.LogError("No next state for " + gameObject.name + " could be spawned!");
+                break;
+        }
     }
 
     /*IEnumerator Retreat()
@@ -193,12 +327,7 @@ public class EnemyCarrot : MonoBehaviour
 
         isAttacking = true;
 
-        switch (enemyType)
-        {
-            case EnemyType.carrot:
-                currentAttack = StartCoroutine(CarrotAttack());
-                break;
-        }
+        currentAttack = StartCoroutine(Attack());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -206,6 +335,11 @@ public class EnemyCarrot : MonoBehaviour
         if (collision.CompareTag("Player") && isAttacking)
         {
             closeEnoughToAttack = true;
+        }
+
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            TakeDamage();
         }
     }
 
@@ -221,6 +355,8 @@ public class EnemyCarrot : MonoBehaviour
 public enum EnemyType
 {
     carrot,
-    broccoli,
+    broccoliParent,
+    broccoliKid,
+    broccoliBaby,
     cabbage
 }
