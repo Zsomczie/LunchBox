@@ -238,9 +238,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuMusic: {fileID: 0}
-  ClassySprite: {fileID: 0}
-  FancySprite: {fileID: 0}
-  Player: {fileID: 0}
+  ClassySprite: {fileID: 21300000, guid: aed307c3a367e25429cdbdd3e5ef92c1, type: 3}
+  FancySprite: {fileID: 21300000, guid: a53071fda337c40468d5bf0326c7cea2, type: 3}
+  Player: {fileID: 7375736673009449064, guid: 0432720682e97b944ad96ce38009f1ed, type: 3}
+  whatCharacter: 1
 --- !u!1 &218065099
 GameObject:
   m_ObjectHideFlags: 0

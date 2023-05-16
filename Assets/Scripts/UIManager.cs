@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
+        DestroyImmediate(GameObject.Find("Sound"));
     }
 
     // Update is called once per frame

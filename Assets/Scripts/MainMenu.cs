@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]GameObject MainMenuMusic;
     public Sprite ClassySprite;
     public Sprite FancySprite;
-    [SerializeField] GameObject Player;
+    public GameObject playerPrefab;
     public void playGame()
     {
 
@@ -68,7 +68,8 @@ public class MainMenu : MonoBehaviour
     public void Classy()
     {
 
-        Player.GetComponent<SpriteRenderer>().sprite = ClassySprite;
+        SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
+        playerSpriteRenderer.sprite = ClassySprite;
 
         IEnumerator backMenu()
         {
@@ -81,7 +82,8 @@ public class MainMenu : MonoBehaviour
     public void Fancy()
     {
 
-        Player.GetComponent<SpriteRenderer>().sprite = FancySprite;
+        SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
+        playerSpriteRenderer.sprite = FancySprite;
 
         IEnumerator backMenu()
         {
@@ -90,6 +92,7 @@ public class MainMenu : MonoBehaviour
         }
         StartCoroutine(backMenu());
     }
+
 
 
 }
