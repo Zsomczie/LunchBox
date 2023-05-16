@@ -9,6 +9,12 @@ public class MainMenu : MonoBehaviour
     public Sprite ClassySprite;
     public Sprite FancySprite;
     public GameObject playerPrefab;
+    public SoundManager soundManager;
+
+    public void Start()
+    {
+        soundManager.GetComponent<SoundManager>().Load();
+    }
     public void playGame()
     {
 
