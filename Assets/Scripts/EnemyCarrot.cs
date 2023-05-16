@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class EnemyCarrot : MonoBehaviour
 {
     [Header("General Info")]
     [SerializeField] private EnemyType enemyType;
 
     [Header("Movement")]
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private bool isMoving;
-    [SerializeField] private bool onIdle;
     [SerializeField] private Vector3 targetPosition;
 
     [Header("Player Detection")]
@@ -47,42 +44,22 @@ public class Enemy : MonoBehaviour
         {
             DetectPlayer();
         }
-
-        /*if (!isAttacking)
-        {
-            if (!isMoving && !onIdle)
-            {
-                //targetPosition = new Vector3(Random.Range(transform.position.x - 2, transform.position.x + 2), Random.Range(transform.position.y - 2, transform.position.y + 2));
-                isMoving = true;
-            }
-
-            else if (isMoving)
-            {
-                DetectPlayer();
-                SetNewDestination();
-            }
-        }*/
     }
 
     private void SetNewDestination()
     {
         navMeshAgent.SetDestination(new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f)));
 
-        Debug.Log("new destination");
+        // walk animation here!!
 
-        /*transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-        if(transform.position == targetPosition)
-        {
-            onIdle = true;
-            isMoving = false;
-            StartCoroutine(Idle());
-        }*/
+        // maybe turn this into a coroutine to cope with the direction flips if it doesn't work here?
     }
 
     private IEnumerator DestinationChangeDelay()
     {
         yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
+
+        // idle animation here!!
 
         navMeshAgent.isStopped = true;
 
@@ -97,6 +74,8 @@ public class Enemy : MonoBehaviour
     private IEnumerator AlternativeDestinationChangeDelay()
     {
         yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
+
+        // idle animation here!!
 
         navMeshAgent.isStopped = true;
 
@@ -115,48 +94,63 @@ public class Enemy : MonoBehaviour
         if(playerCollider != null)
         {
             Debug.Log("player has been detected");
+
+            // spotting animation here!!
+
             player = playerCollider.gameObject;
             playerController = player.GetComponent<PlayerController>();
             transform.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             playerDetected = true;
             isAttacking = true;
             StopCoroutine(currentMovementDelay);
-            currentAttack = StartCoroutine(CarrotAttack());
             navMeshAgent.isStopped = true;
+            StartCoroutine(SpottingDelayAfterPlayerDetection());
+
+            // increase the speed for upcoming attacks compared to idle roaming
+            navMeshAgent.speed = navMeshAgent.speed * 1.7f;
+            navMeshAgent.acceleration = navMeshAgent.acceleration * 1.7f;
         }
+    }
+
+    private IEnumerator SpottingDelayAfterPlayerDetection()
+    {
+        yield return new WaitForSeconds(2f);
+
+        currentAttack = StartCoroutine(CarrotAttack());
     }
 
     IEnumerator CarrotAttack()
     {
-        yield return new WaitForSeconds(2f);
+        // delay between each attack, can later be removed if needed
+        yield return new WaitForSeconds(1f);
 
         navMeshAgent.isStopped = false;
-        Debug.Log("start attacking");
         targetPosition = player.transform.position;
+
+        // charge animation here!!
 
         while (isAttacking)
         {
+
             targetPosition = player.transform.position;
             navMeshAgent.SetDestination(targetPosition);
 
-            Debug.Log("attackmove");
+            // possible animation flips here!!
 
             if (closeEnoughToAttack)
             {
                 DealDamage();
-                Debug.Log("Damage done");
                 yield break;
             }
 
             yield return new WaitForSeconds(0.01f);
         }
-
-        Debug.Log("attack ended");
     }
 
     private void DealDamage()
     {
-        // deal damage to player
+        // attack animation here!!
+
         playerController.health =- damage;
         //StartCoroutine(Retreat());
         RestartAttack();
@@ -221,13 +215,6 @@ public class Enemy : MonoBehaviour
         {
             closeEnoughToAttack = false;
         }
-    }
-
-    private IEnumerator Idle()
-    {
-        yield return new WaitForSeconds(2f);
-
-        onIdle = false;
     }
 }
 

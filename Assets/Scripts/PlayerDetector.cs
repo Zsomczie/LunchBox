@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    private Enemy enemyScript;
+    private EnemyCarrot enemyScript;
 
     void Awake()
     {
-        enemyScript = GetComponentInParent<Enemy>();
+        enemyScript = GetComponentInParent<EnemyCarrot>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
