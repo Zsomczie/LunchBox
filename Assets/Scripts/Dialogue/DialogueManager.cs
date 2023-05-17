@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI potatoNameText;
+    [SerializeField] private GameObject continueButton;
 
     [Header("Quest Choices")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -66,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        dialogueCanvas.SetActive(true);
 
         Debug.Log("starting dialogue");
 
@@ -94,6 +96,8 @@ public class DialogueManager : MonoBehaviour
         List<Choice> currentChoices = currentStory.currentChoices;
         Debug.Log(currentStory.currentChoices.Count);
 
+        //if
+
         if(currentChoices.Count > choiceButtons.Length)
         {
             Debug.LogWarning("There are more choices written than the UI can hold!");
@@ -116,8 +120,14 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
-        ContinueDialogue();
+        IEnumerator choose()
+        {
+            yield return new WaitForSeconds(1f);
+            //SceneManager.LoadScene(0);
+            currentStory.ChooseChoiceIndex(choiceIndex);
+            ContinueDialogue();
+        }
+        StartCoroutine(choose());
     }
 
     private void HandleTags(List<string> currentTags)
@@ -181,12 +191,19 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-        dialogueText.text = "";
+        IEnumerator playGame()
+        {
+            yield return new WaitForSeconds(1f);
+            //SceneManager.LoadScene(0);
+            dialogueIsPlaying = false;
+            dialoguePanel.SetActive(false);
+            dialogueText.text = "";
 
-        Debug.Log("dialogue ended");
+            Debug.Log("dialogue ended");
 
-        SceneManager.LoadScene("Main");
+
+            SceneManager.LoadScene("Main");
+        }
+        StartCoroutine(playGame());
     }
 }

@@ -2077,9 +2077,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89fbec933cf0a3a418b0c92bad1119bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueCanvas: {fileID: 0}
   dialoguePanel: {fileID: 2078835202}
   dialogueText: {fileID: 582530555}
   potatoNameText: {fileID: 1131981726}
+  continueButton: {fileID: 0}
   choiceButtons:
   - {fileID: 1904026715}
   - {fileID: 694178930}
