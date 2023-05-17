@@ -39,9 +39,18 @@ public class Enemy : MonoBehaviour
     //for damage taking purposes
     private Shooting shooting;
 
+    //Animation stuff
+    public Animator enemyAnimator;
+
+    public bool isWalking;
+    public bool seePlayer;
+    public bool isDead;
+    public bool attackStart;
 
     void Awake()
     {
+        enemyAnimator.GetComponent<Animator>();
+
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
@@ -64,8 +73,9 @@ public class Enemy : MonoBehaviour
                 playerDetected = true;
                 isAttacking = true;
                 navMeshAgent.isStopped = true;
-                
+
                 // spotting animation here!!
+                seePlayer = true;
 
                 StartCoroutine(SpottingDelayAfterPlayerDetection());
             }
@@ -100,6 +110,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent.SetDestination(new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f)));
 
         // walk animation here!!
+        isWalking = true;
 
         // maybe turn this into a coroutine to cope with the direction flips if it doesn't work here?
     }
@@ -109,6 +120,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
 
         // idle animation here!!
+        isWalking = false;
 
         navMeshAgent.isStopped = true;
 
@@ -125,6 +137,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
 
         // idle animation here!!
+        isWalking = false;
 
         navMeshAgent.isStopped = true;
 
@@ -145,6 +158,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("player has been detected");
 
             // spotting animation here!!
+            seePlayer = true;
 
             player = playerCollider.gameObject;
             playerController = player.GetComponent<PlayerController>();
@@ -216,6 +230,7 @@ public class Enemy : MonoBehaviour
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.carrot, 1);
 
                     // death animation here!!
+                    isDead = true;
 
                     Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
@@ -231,6 +246,7 @@ public class Enemy : MonoBehaviour
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
                     // death animation here!!
+                    isDead = true;
 
                     Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
@@ -246,6 +262,7 @@ public class Enemy : MonoBehaviour
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
                     // death animation here!!
+                    isDead = true;
 
                     Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
@@ -254,6 +271,7 @@ public class Enemy : MonoBehaviour
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
                     // death animation here!!
+                    isDead = true;
 
                     Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
