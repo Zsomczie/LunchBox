@@ -9,6 +9,7 @@ public class MainMenu : SoundManager
     public Sprite ClassySprite;
     public Sprite FancySprite;
     public GameObject playerPrefab;
+
     //public SoundManager soundManager;
 
     public void Start()
@@ -22,7 +23,6 @@ public class MainMenu : SoundManager
 
         IEnumerator playMenu()
         {
-
             yield return new WaitForSeconds(1f);
             DestroyImmediate(MainMenuMusic);
             Destroy(MainMenuMusic);
