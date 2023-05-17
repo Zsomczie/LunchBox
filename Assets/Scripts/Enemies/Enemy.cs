@@ -64,6 +64,9 @@ public class Enemy : MonoBehaviour
                 playerDetected = true;
                 isAttacking = true;
                 navMeshAgent.isStopped = true;
+                
+                // spotting animation here!!
+
                 StartCoroutine(SpottingDelayAfterPlayerDetection());
             }
         }
@@ -86,11 +89,6 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            TakeDamage();
-        }
-
         if(!isAttacking && enemyType == EnemyType.carrot)
         {
             DetectPlayer();
@@ -197,33 +195,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator BroccoliAttack()
-    {
-        // delay between each attack, can later be removed if needed
-        yield return new WaitForSeconds(1f);
-
-        navMeshAgent.isStopped = false;
-        targetPosition = player.transform.position;
-
-        // charge animation here!!
-
-        while (isAttacking)
-        {
-            targetPosition = player.transform.position;
-            navMeshAgent.SetDestination(targetPosition);
-
-            // possible animation flips here!!
-
-            if (closeEnoughToAttack)
-            {
-                DealDamage();
-                yield break;
-            }
-
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
-
     private void DealDamage()
     {
         // attack animation here!!
@@ -235,15 +206,18 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        Health-=shooting.equippedWeapon.damage; // CHANGE THIS TO MATCH THE WEAPON DAMAGE!!!!!
+        Health-=shooting.equippedWeapon.damage;
 
         if(Health <= 0)
         {
             switch (enemyType)
             {
                 case EnemyType.carrot:
-                    Destroy(gameObject);
+                    QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.carrot, 1);
+
                     // death animation here!!
+
+                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 case EnemyType.broccoliParent:
@@ -253,7 +227,12 @@ public class Enemy : MonoBehaviour
                     {
                         SpawnNextBroccoliState("kid", i);
                     }
-                    Destroy(gameObject);
+
+                    QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
+
+                    // death animation here!!
+
+                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 case EnemyType.broccoliKid:
@@ -263,11 +242,20 @@ public class Enemy : MonoBehaviour
                     {
                         SpawnNextBroccoliState("baby", i);
                     }
-                    Destroy(gameObject);
+
+                    QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
+
+                    // death animation here!!
+
+                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 case EnemyType.broccoliBaby:
-                    Destroy(gameObject);
+                    QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
+
+                    // death animation here!!
+
+                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 default:
