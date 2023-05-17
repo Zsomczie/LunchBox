@@ -40,6 +40,7 @@ public class EnemyCabbage : MonoBehaviour
 
     void Awake()
     {
+        enemyAnimator.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         //SetNewDestination();
