@@ -34,7 +34,21 @@ public class CabbagePlayerDetection : MonoBehaviour
         if (collision.gameObject.name.Contains("Bullet"))
         {
             enemyCabbage.TakeDamage();
+            StopCoroutine(onFire());
+            if (collision.gameObject.GetComponent<Bulletmove>().fiery == true)
+            {
+                StartCoroutine(onFire());
+            }
             Destroy(collision.gameObject);
+            IEnumerator onFire()
+            {
+                yield return new WaitForSeconds(0.5f);
+               enemyCabbage.Health -= 0.1f;
+                yield return new WaitForSeconds(0.5f);
+                enemyCabbage.Health -= 0.1f;
+                yield return new WaitForSeconds(0.5f);
+                enemyCabbage.Health -= 0.1f;
+            }
         }
     }
 }
