@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
-        DestroyImmediate(GameObject.Find("Sound"));
+
         shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
     }
 
