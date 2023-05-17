@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        //shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
+        shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         if (enemyType == EnemyType.carrot)
         {
             SetNewDestination();
@@ -75,14 +75,18 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(SpottingDelayAfterPlayerDetection());
             }
         }
-        if (gameObject.name.Contains("Parent")|| gameObject.name.Contains("Carrot"))
+        if (gameObject.name.Contains("Parent"))
+        {
+            Health = 6;
+            currentState = "Kid";
+        }
+        else if (gameObject.name.Contains("Carrot"))
         {
             Health = 4;
-            currentState = "Kid";
         }
         else if (gameObject.name.Contains("Kid"))
         {
-            Health = 2;
+            Health = 3;
             currentState = "Baby";
         }
         else if (gameObject.name.Contains("Baby"))
@@ -206,10 +210,23 @@ public class Enemy : MonoBehaviour
     private void DealDamage()
     {
         // attack animation here!!
-
-        playerController.health -= damage;
+        if (playerController.invincible==false)
+        {
+            playerController.health -= damage;
+            RestartAttack();
+            StartCoroutine(playerInvincibility());
+            
+        }
+        
+        
         //StartCoroutine(Retreat());
-        RestartAttack();
+        
+        IEnumerator playerInvincibility()
+        {
+            playerController.invincible = true;
+            yield return new WaitForSeconds(1f);
+            playerController.invincible = false;
+        }
     }
 
     public void TakeDamage()
