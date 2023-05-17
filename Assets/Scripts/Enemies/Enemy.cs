@@ -243,7 +243,7 @@ public class Enemy : MonoBehaviour
                     // death animation here!!
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 0.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 case EnemyType.broccoliParent:
@@ -259,7 +259,7 @@ public class Enemy : MonoBehaviour
                     // death animation here!!
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 case EnemyType.broccoliKid:
@@ -275,7 +275,7 @@ public class Enemy : MonoBehaviour
                     // death animation here!!
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 case EnemyType.broccoliBaby:
@@ -284,7 +284,7 @@ public class Enemy : MonoBehaviour
                     // death animation here!!
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
                     break;
 
                 default:

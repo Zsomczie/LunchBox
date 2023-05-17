@@ -135,7 +135,7 @@ public class EnemyCabbage : MonoBehaviour
 
             // death animation here!!
 
-            Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+            Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
         }
     }
 
