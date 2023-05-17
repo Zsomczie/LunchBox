@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float verticalMove;
     private void Awake()
     {
+        gameObject.name = "Player";
         // get a reference to the SpriteRenderer component on this gameObject
         Player = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();

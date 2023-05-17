@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameSound
   - Cabbage
+  - HatManager
   layers:
   - Default
   - TransparentFX
