@@ -33,6 +33,10 @@ public class EnemyCabbage : MonoBehaviour
     [Header("For Script References Only")]
     public Rigidbody2D rb;
 
+    //Animation stuff
+    public Animator enemyAnimator;
+    public bool seePlayer;
+    public bool attackStart;
 
     void Awake()
     {
@@ -84,6 +88,7 @@ public class EnemyCabbage : MonoBehaviour
             Debug.Log("player has been detected");
 
             // spotting animation here!!
+            seePlayer = true;
 
             player = playerCollider.gameObject;
             playerController = player.GetComponent<PlayerController>();
@@ -111,7 +116,7 @@ public class EnemyCabbage : MonoBehaviour
     public void DealDamage()
     {
         // attack animation here!!
-
+        attackStart = true;
 
         isRolling = false;
         playerController.health -= damage;

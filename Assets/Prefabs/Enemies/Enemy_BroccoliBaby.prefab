@@ -61,7 +61,7 @@ MonoBehaviour:
   kidPrefab: {fileID: 8978087876848535553, guid: 459cd01df2f8c584883db2f534982c92, type: 3}
   babyPrefab: {fileID: 5481204613037920471}
   kidSpawnPoint: {fileID: 5481204613361676042}
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 5481204613037920469}
   isWalking: 0
   seePlayer: 0
   isDead: 0

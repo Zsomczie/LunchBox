@@ -267,6 +267,9 @@ MonoBehaviour:
   damage: 1
   Health: 10
   rb: {fileID: 0}
+  enemyAnimator: {fileID: 3523738284353955033}
+  seePlayer: 0
+  attackStart: 0
 --- !u!50 &3523738284353955038
 Rigidbody2D:
   serializedVersion: 4
