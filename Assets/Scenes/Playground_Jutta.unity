@@ -241,6 +241,8 @@ MonoBehaviour:
   health: 60
   invincible: 0
   keys: 0
+  isShielding: 0
+  shield: {fileID: 0}
 --- !u!1001 &646720537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,11 +454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3523738284353955032, guid: 762116526b0344647b798d2dccfa4ea3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.22
+      value: 6.35
       objectReference: {fileID: 0}
     - target: {fileID: 3523738284353955032, guid: 762116526b0344647b798d2dccfa4ea3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.29
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 3523738284353955032, guid: 762116526b0344647b798d2dccfa4ea3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -496,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3523738284353955035, guid: 762116526b0344647b798d2dccfa4ea3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 762116526b0344647b798d2dccfa4ea3, type: 3}

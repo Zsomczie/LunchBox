@@ -42,7 +42,7 @@ public class EnemyCabbage : MonoBehaviour
     {
         enemyAnimator.GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
+        //shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         //SetNewDestination();
         //currentMovementDelay = StartCoroutine(DestinationChangeDelay());
     }
@@ -93,7 +93,6 @@ public class EnemyCabbage : MonoBehaviour
 
             player = playerCollider.gameObject;
             playerController = player.GetComponent<PlayerController>();
-            transform.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             playerDetected = true;
             isAttacking = true;
             StartCoroutine(SpottingDelayAfterPlayerDetection());

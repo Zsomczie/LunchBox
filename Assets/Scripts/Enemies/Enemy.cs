@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
+        //shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         if (enemyType == EnemyType.carrot)
         {
             SetNewDestination();
@@ -161,7 +161,6 @@ public class Enemy : MonoBehaviour
 
             player = playerCollider.gameObject;
             playerController = player.GetComponent<PlayerController>();
-            transform.GetComponentInChildren<SpriteRenderer>().color = Color.green;
             playerDetected = true;
             isAttacking = true;
             StopCoroutine(currentMovementDelay);
