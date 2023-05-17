@@ -16,10 +16,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer Player;
 
     // This function is called just one time by Unity the moment the component loads
+    public Animator playerAnimator;
     private void Awake()
     {
         // get a reference to the SpriteRenderer component on this gameObject
         Player = GetComponent<SpriteRenderer>();
+        playerAnimator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
