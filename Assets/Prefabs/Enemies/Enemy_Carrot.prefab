@@ -60,7 +60,7 @@ MonoBehaviour:
   kidPrefab: {fileID: 0}
   babyPrefab: {fileID: 0}
   kidSpawnPoint: {fileID: 0}
-  enemyAnimator: {fileID: 0}
+  enemyAnimator: {fileID: 5820046918258107290}
   isWalking: 0
   seePlayer: 0
   isDead: 0

@@ -45,7 +45,6 @@ public class Enemy : MonoBehaviour
     public bool isWalking;
     public bool seePlayer;
     public bool isDead;
-    public bool attackStart;
 
     void Awake()
     {
