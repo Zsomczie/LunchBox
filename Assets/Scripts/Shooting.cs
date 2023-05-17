@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Linq;
 using System.Globalization;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(equippedWeapon.weaponType);
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x)*Mathf.Rad2Deg;
@@ -119,7 +121,30 @@ public class Shooting : MonoBehaviour
             StartCoroutine(reload());
             
         }
-        if (Input.GetMouseButton(0) && canFire && equippedWeapon.currentAmmo != 0&&!reloading)
+
+        if (Input.GetMouseButton(0) && equippedWeapon.weaponType == "shotgun" && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
+        {
+            canFire = false;
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            equippedWeapon.currentAmmo--;
+            IEnumerator setEmpty()
+            {
+                yield return new WaitForSeconds(0.1f);
+                empty = true;
+            }
+            if (equippedWeapon.currentAmmo == 0)
+            {
+                StartCoroutine(setEmpty());
+            }
+        }
+        else if (Input.GetMouseButton(0) && canFire && equippedWeapon.currentAmmo != 0&&!reloading)
         {
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
@@ -134,5 +159,10 @@ public class Shooting : MonoBehaviour
                 StartCoroutine(setEmpty());
             }
         }
+        
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 }

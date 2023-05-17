@@ -7,7 +7,7 @@ public class Bulletmove : MonoBehaviour
     [SerializeField] Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
-    [SerializeField] float speed = 5;
+    [SerializeField] float speed = 10;
     [SerializeField] Vector3 direction;
     Shooting shooting;
     // Start is called before the first frame update
@@ -22,15 +22,22 @@ public class Bulletmove : MonoBehaviour
         if (shooting.equippedWeapon.weaponType=="beam")
         {
             rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
+            Destroy(gameObject, 3f);
+        }
+        else if (shooting.equippedWeapon.weaponType=="shotgun")
+        {
+            rb.velocity = new Vector2(direction.x + offsetshotgun(), direction.y + offsetshotgun()).normalized * randomizeSpeed();
+            Destroy(gameObject, 0.5f);
         }
         else
         {
             rb.velocity = new Vector2(direction.x + offsetx(), direction.y + offsetx()).normalized * speed;
+            Destroy(gameObject, 3f);
         }
         
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
-        Destroy(gameObject, 3f);
+        
     }
 
     // Update is called once per frame
@@ -40,5 +47,13 @@ public class Bulletmove : MonoBehaviour
     float offsetx() 
     {
         return Random.Range(-0.6f, 0.5f);
+    }
+    float offsetshotgun() 
+    {
+        return Random.Range(-1.5f, 1.5f);
+    }
+    float randomizeSpeed() 
+    {
+        return Random.Range(8f, 10f);
     }
 }

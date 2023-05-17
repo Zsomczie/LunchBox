@@ -201,7 +201,7 @@ public class DialogueManager : MonoBehaviour
 
             Debug.Log("dialogue ended");
 
-
+            dialogueCanvas.SetActive(false);
             SceneManager.LoadScene("Main");
         }
         StartCoroutine(playGame());
