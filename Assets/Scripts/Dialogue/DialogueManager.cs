@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI potatoNameText;
 
     [Header("Quest Choices")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -24,6 +25,7 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager instance;
 
     private const string selectedQuest = "selectedQuest";
+    private const string potatoName = "potatoName";
 
     private void Awake()
     {
@@ -107,8 +109,6 @@ public class DialogueManager : MonoBehaviour
         {
             choiceButtons[i].gameObject.SetActive(false);
         }
-
-        //StartCoroutine(SelectFirstChoice());
     }
 
     public void MakeChoice(int choiceIndex)
@@ -157,6 +157,20 @@ public class DialogueManager : MonoBehaviour
 
                     QuestManager.GetInstance().SetNewQuest(newQuest);
 
+                    break;
+
+                case potatoName:
+
+                    switch (tagValue)
+                    {
+                        case "talking":
+                            potatoNameText.text = "The Talking Potato";
+                            break;
+
+                        case "racist":
+                            potatoNameText.text = "The Racist Potato";
+                            break;
+                    }
                     break;
             }
         }
