@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,127 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Smooth walls wip_0
+      name: Corner TL
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 966d1956081ca2c42be730b0d301a332
-      internalID: -1649344582
+      spriteID: 917d10c10012e4e47ba2c9e930fd4c76
+      internalID: 542621117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_1
+      name: Curve TL
       rect:
         serializedVersion: 2
         x: 32
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a0452a80965d1f41b20b547dcdae2b6
-      internalID: -21409608
+      spriteID: 3c5cf189b1017fb4fb4b64683bd12dba
+      internalID: -1031696796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_2
+      name: Side TM
       rect:
         serializedVersion: 2
         x: 64
-        y: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc2c4050f14485d458cdff3424c92c88
-      internalID: 1550621880
+      spriteID: d76fe5fbec7d96849ad7fa1991535f52
+      internalID: -695299069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_3
+      name: Curve TR
       rect:
         serializedVersion: 2
         x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8980250e129691148aa12738a4dfcc88
+      internalID: 750783939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner TR
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac6b2aa8a4ec3f408033791527f6f83
+      internalID: 486900576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Curve Side LT
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 96
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74c30c6bb49db9a4bb56fc06386e98ca
-      internalID: 1155928492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Smooth walls wip_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 851269e6632ee5845b2fa907b8e378cc
-      internalID: -201950612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Smooth walls wip_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a0fb408650ce2b48ac98b563643154e
-      internalID: 57623763
+      spriteID: 72cbce6070224d44e91dc8ea8e6fb81a
+      internalID: -1132828094
       vertices: []
       indices: 
       edges: []
@@ -234,19 +234,19 @@ TextureImporter:
       name: Smooth walls wip_6
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f85fe16b5f18d904c9dc0aa39e8b82b9
-      internalID: 207334227
+      spriteID: e565dfd3ca75ef146bf0644277b39cc5
+      internalID: 410002611
       vertices: []
       indices: 
       edges: []
@@ -255,19 +255,19 @@ TextureImporter:
       name: Smooth walls wip_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2775d00165f8b46beb86f00d29f2f8
-      internalID: 800067093
+      spriteID: de85fda80f34f2744905af591f9038bb
+      internalID: 1573689100
       vertices: []
       indices: 
       edges: []
@@ -277,60 +277,60 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 780f50056ee899d4ab1046279331ce39
-      internalID: -1155054850
+      spriteID: 21098dc2b6debd840b9377b627c4936f
+      internalID: 1909900395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Smooth walls wip_9
+      name: Side RT
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f097bae07de75f247a48e9b694f67212
+      internalID: 1686559246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side LM
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 407ddb3a31e1c064ea48bc464c7ed9d7
-      internalID: 1598557845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Smooth walls wip_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76d5ecf60b89f3149a691004c1f33e08
-      internalID: -502684814
+      spriteID: c5a70dad458d5b24bbc771217e5c3761
+      internalID: 2050420640
       vertices: []
       indices: 
       edges: []
@@ -339,19 +339,19 @@ TextureImporter:
       name: Smooth walls wip_11
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf87e7adf02b42545a356a6b22bf6123
-      internalID: 1922452339
+      spriteID: d3ad420df75f67348aa8ae5a0c0de98d
+      internalID: 703020174
       vertices: []
       indices: 
       edges: []
@@ -360,19 +360,271 @@ TextureImporter:
       name: Smooth walls wip_12
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f48b143e934de804e84e7cb514975e5c
-      internalID: -1464209011
+      spriteID: ad612b32261b4a3489d675ea5de84158
+      internalID: -1008605219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smooth walls wip_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5359042b2e0e04183230d6089cb823
+      internalID: -1232109823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side RM
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c598d6093b34c041aae96ebaf5392a4
+      internalID: -1086323997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Curve Side LB
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe2772d6b0f39d41bc9c811f4e3cf82
+      internalID: 276499007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smooth walls wip_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dc63c623db950c48b542be02fe34bd9
+      internalID: -714866015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smooth walls wip_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923c5645e55ecc645b1ed1a32c2a414d
+      internalID: -750264336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smooth walls wip_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a53a866454bca944be31db7b25d8ce8
+      internalID: 177125774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side RB
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7f8de68df8d8844bd8f82d6fee1b49
+      internalID: -1156187410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner BL
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37288e0a5335cd4a88c03e8b682194b
+      internalID: 509568440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Curve Side BL
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a19347f838b11448ec621e2bf227bd
+      internalID: -1489621823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side BM
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931bcf1f5c655004cafd91267811c69c
+      internalID: 1519945883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Curve Side BR
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c16ad43b1ccf2a409e7df9b4f7f3706
+      internalID: -1738055132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Corner Bottom Right
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721138ccda6dc6041ae6ad945ca19ff9
+      internalID: 34078262
       vertices: []
       indices: 
       edges: []
@@ -388,19 +640,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Smooth walls wip_0: -1649344582
-      Smooth walls wip_1: -21409608
-      Smooth walls wip_10: -502684814
-      Smooth walls wip_11: 1922452339
-      Smooth walls wip_12: -1464209011
-      Smooth walls wip_2: 1550621880
-      Smooth walls wip_3: 1155928492
-      Smooth walls wip_4: -201950612
-      Smooth walls wip_5: 57623763
-      Smooth walls wip_6: 207334227
-      Smooth walls wip_7: 800067093
-      Smooth walls wip_8: -1155054850
-      Smooth walls wip_9: 1598557845
+      Corner BL: 509568440
+      Corner Bottom Right: 34078262
+      Corner TL: 542621117
+      Corner TR: 486900576
+      Curve Side BL: -1489621823
+      Curve Side BR: -1738055132
+      Curve Side LB: 276499007
+      Curve Side LT: -1132828094
+      Curve TL: -1031696796
+      Curve TR: 750783939
+      Side BM: 1519945883
+      Side LM: 2050420640
+      Side RB: -1156187410
+      Side RM: -1086323997
+      Side RT: 1686559246
+      Side TM: -695299069
+      Smooth walls wip_11: 703020174
+      Smooth walls wip_12: -1008605219
+      Smooth walls wip_13: -1232109823
+      Smooth walls wip_16: -714866015
+      Smooth walls wip_17: -750264336
+      Smooth walls wip_18: 177125774
+      Smooth walls wip_6: 410002611
+      Smooth walls wip_7: 1573689100
+      Smooth walls wip_8: 1909900395
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
