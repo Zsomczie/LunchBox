@@ -35,7 +35,7 @@ public class QuestManager : MonoBehaviour
     {
         if(target == currentQuest.target && !currentQuest.questCompleted)
         {
-            currentQuest.currentKills -= amount;
+            currentQuest.currentKills += amount;
             
             if(currentQuest.currentKills >= currentQuest.neededAmountOfKills)
             {
