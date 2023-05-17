@@ -26,7 +26,7 @@ public class MainMenu : SoundManager
             yield return new WaitForSeconds(1f);
             DestroyImmediate(MainMenuMusic);
             Destroy(MainMenuMusic);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(7);
         }
         StartCoroutine(playMenu());
 

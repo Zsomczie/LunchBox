@@ -10,6 +10,11 @@ public class QuestManager : MonoBehaviour
     public Quest currentQuest;
     public List<Quest> possibleQuests;
 
+
+    private void Start()
+    {
+        DestroyImmediate(GameObject.Find("Sound"));
+    }
     private void Awake()
     {
         if (instance != null)
