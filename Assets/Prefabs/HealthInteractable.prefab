@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5068666244113245996}
   - component: {fileID: 924446846}
   m_Layer: 0
-  m_Name: Interactable
+  m_Name: HealthInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

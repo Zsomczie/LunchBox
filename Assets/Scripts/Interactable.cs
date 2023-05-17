@@ -8,11 +8,13 @@ public class Interactable : MonoBehaviour
     public bool pickedup = false;
     PlayerController player;
     Door door;
+    Chest chest;
     // Use this for initialization
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         door = GameObject.Find("Door").GetComponent<Door>();
+        chest = GameObject.Find("Chest").GetComponent<Chest>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,11 @@ public class Interactable : MonoBehaviour
             door.isLocked = false;
             player.keys--;
             Destroy(gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.E) && IsActiveNow && !pickedup && gameObject.transform.name.Contains("Chest") && player.keys>0)
+        {
+            chest.isOpen = true;
+            player.keys--;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
