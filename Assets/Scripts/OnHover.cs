@@ -14,7 +14,9 @@ public class OnHover : MonoBehaviour
     }
     public void ClickSound()
     {
-        myFX.PlayOneShot(ClickFX);
+
+            myFX.PlayOneShot(ClickFX);
+
     }
    
 }

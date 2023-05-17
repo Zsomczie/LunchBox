@@ -936,8 +936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5113c96ad52a24e8adfa17137a83b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightGO: {fileID: 0}
-  button: {fileID: 0}
+  highlightGO: {fileID: 826593219}
+  button: {fileID: 586885290}
+  buttonFX: {fileID: 586885294}
 --- !u!1 &645671900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,8 +1671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5113c96ad52a24e8adfa17137a83b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightGO: {fileID: 0}
-  button: {fileID: 0}
+  highlightGO: {fileID: 548839738}
+  button: {fileID: 827707573}
+  buttonFX: {fileID: 827707578}
 --- !u!1 &875120500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +1884,7 @@ MonoBehaviour:
   ClassySprite: {fileID: 21300000, guid: aed307c3a367e25429cdbdd3e5ef92c1, type: 3}
   FancySprite: {fileID: 21300000, guid: a53071fda337c40468d5bf0326c7cea2, type: 3}
   playerPrefab: {fileID: 7375736673009449065, guid: 0432720682e97b944ad96ce38009f1ed, type: 3}
+  hat: {fileID: 0}
 --- !u!1 &1065902449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,8 +2579,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5113c96ad52a24e8adfa17137a83b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightGO: {fileID: 0}
-  button: {fileID: 0}
+  highlightGO: {fileID: 1474908609}
+  button: {fileID: 1417820454}
+  buttonFX: {fileID: 1417820458}
 --- !u!1 &1474908609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3152,3 +3156,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightGO: {fileID: 693333865}
   button: {fileID: 1965789540}
+  buttonFX: {fileID: 1965789545}

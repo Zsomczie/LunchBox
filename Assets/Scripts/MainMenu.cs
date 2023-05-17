@@ -95,6 +95,7 @@ public class MainMenu : SoundManager
 
         //SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
         //playerSpriteRenderer.sprite = FancySprite;
+        Debug.Log("geci");
         hat.SetCategoryAndLabel("Hat", "Entry_0");
         Debug.Log("lol");
 
@@ -102,6 +103,7 @@ public class MainMenu : SoundManager
         {
             yield return new WaitForSeconds(1f);
             //SceneManager.LoadScene(0);
+            
         }
         StartCoroutine(backMenu());
     }
