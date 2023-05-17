@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D.Animation;
 
 public class MainMenu : SoundManager
 {
@@ -10,13 +12,14 @@ public class MainMenu : SoundManager
     public Sprite FancySprite;
     public GameObject playerPrefab;
 
+    [SerializeField] SpriteResolver hat;
     //public SoundManager soundManager;
 
     public void Start()
     {
+        hat = playerPrefab.GetComponentInChildren<SpriteResolver>();
         //soundManager.GetComponent<SoundManager>().Load();
         AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
-
     }
     public void playGame()
     {
@@ -75,9 +78,9 @@ public class MainMenu : SoundManager
 
     public void Classy()
     {
-
-        SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
-        playerSpriteRenderer.sprite = ClassySprite;
+        hat.SetCategoryAndLabel("Hat", "Entry");
+        //SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
+        //playerSpriteRenderer.sprite = ClassySprite;
 
         IEnumerator backMenu()
         {
@@ -90,8 +93,10 @@ public class MainMenu : SoundManager
     public void Fancy()
     {
 
-        SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
-        playerSpriteRenderer.sprite = FancySprite;
+        //SpriteRenderer playerSpriteRenderer = playerPrefab.GetComponent<SpriteRenderer>();
+        //playerSpriteRenderer.sprite = FancySprite;
+        hat.SetCategoryAndLabel("Hat", "Entry_0");
+        Debug.Log("lol");
 
         IEnumerator backMenu()
         {
