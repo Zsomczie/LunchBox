@@ -10,6 +10,7 @@ public class Bulletmove : MonoBehaviour
     [SerializeField] float speed = 10;
     [SerializeField] Vector3 direction;
     Shooting shooting;
+    public bool fiery=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Bulletmove : MonoBehaviour
         if (shooting.equippedWeapon.weaponType=="beam")
         {
             rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
+            fiery = true;
             Destroy(gameObject, 3f);
         }
         else if (shooting.equippedWeapon.weaponType=="shotgun")

@@ -40,7 +40,7 @@ public class EnemyCabbage : MonoBehaviour
     {
         enemyAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        //shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
+        shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         //SetNewDestination();
         //currentMovementDelay = StartCoroutine(DestinationChangeDelay());
     }
@@ -131,7 +131,7 @@ public class EnemyCabbage : MonoBehaviour
         Health -= shooting.equippedWeapon.damage;
         if (Health<=0)
         {
-            QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
+            //QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
 
             // death animation here!!
 
