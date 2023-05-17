@@ -218,7 +218,11 @@ SpriteRenderer:
   m_SortingLayerID: -1866460405
   m_SortingLayer: 1
   m_SortingOrder: 2
+<<<<<<< Updated upstream
   m_Sprite: {fileID: -673706305, guid: 50e4e2acd9c247640bf4ca71a2ecfaca, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: aed307c3a367e25429cdbdd3e5ef92c1, type: 3}
+>>>>>>> Stashed changes
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,7 +251,10 @@ MonoBehaviour:
   keys: 0
   isShielding: 0
   shield: {fileID: 0}
+<<<<<<< Updated upstream
   playerAnimator: {fileID: -7357105789492207246}
+=======
+>>>>>>> Stashed changes
 --- !u!50 &1682348185
 Rigidbody2D:
   serializedVersion: 4
