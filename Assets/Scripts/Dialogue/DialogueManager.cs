@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI potatoNameText;
+    [SerializeField] private GameObject continueButton;
 
     [Header("Quest Choices")]
     [SerializeField] private GameObject[] choiceButtons;
@@ -66,6 +67,7 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        dialogueCanvas.SetActive(true);
 
         Debug.Log("starting dialogue");
 
@@ -93,6 +95,8 @@ public class DialogueManager : MonoBehaviour
     {
         List<Choice> currentChoices = currentStory.currentChoices;
         Debug.Log(currentStory.currentChoices.Count);
+
+        //if
 
         if(currentChoices.Count > choiceButtons.Length)
         {
@@ -186,6 +190,8 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
 
         Debug.Log("dialogue ended");
+
+        dialogueCanvas.SetActive(false);
 
         SceneManager.LoadScene("Main");
     }

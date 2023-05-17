@@ -23,12 +23,12 @@ public class Enemy : MonoBehaviour
     [Header("Health")]
     public float Health;
 
-
     [Header("For Broccoli Only")]
     [SerializeField] private GameObject kidPrefab;
     [SerializeField] private GameObject babyPrefab;
     [SerializeField] private Transform kidSpawnPoint;
     private string currentState;
+
     // general private variables
 
     private Coroutine currentAttack;
