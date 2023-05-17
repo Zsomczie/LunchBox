@@ -50,15 +50,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  moveSpeed: 2
-  isMoving: 0
-  onIdle: 0
   targetPosition: {x: 0, y: 0, z: 0}
   playerDetected: 0
   player: {fileID: 0}
   closeEnoughToAttack: 0
   isAttacking: 0
   damage: 0
+  Health: 0
+  kidPrefab: {fileID: 0}
+  babyPrefab: {fileID: 0}
+  kidSpawnPoint: {fileID: 0}
+  enemyAnimator: {fileID: 0}
+  isWalking: 0
+  seePlayer: 0
+  isDead: 0
+  attackStart: 0
 --- !u!195 &5820046918258107281
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -128,7 +134,7 @@ Animator:
   m_GameObject: {fileID: 5820046918258107288}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b681b2ff496d2046b13e663f82f6427, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
