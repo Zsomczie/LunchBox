@@ -62,7 +62,6 @@ public class EnemyCabbage : MonoBehaviour
             if(restartCoroutine == null)
             {
                 StartCoroutine(RestartAttack());
-                Debug.Log("restart");
             }
         }
     }
@@ -70,7 +69,7 @@ public class EnemyCabbage : MonoBehaviour
     private void SetNewDestination()
     {
         targetPosition = player.transform.position - transform.position;
-        rb.AddForce(targetPosition * Time.deltaTime * moveSpeed * 1500f);
+        rb.AddForce(targetPosition * Time.deltaTime * moveSpeed * 150f);
         StartCoroutine(IsRollingDelay());
 
         // walk animation here!!
@@ -106,7 +105,7 @@ public class EnemyCabbage : MonoBehaviour
 
     private IEnumerator IsRollingDelay()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
 
         isRolling = true;
     }
@@ -118,7 +117,6 @@ public class EnemyCabbage : MonoBehaviour
 
         isRolling = false;
         playerController.health -= damage;
-        Debug.Log("Deal damage");
         rb.velocity = Vector2.zero;
 
         if (restartCoroutine == null)
