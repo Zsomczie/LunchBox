@@ -182,6 +182,8 @@ MonoBehaviour:
   isAttacking: 0
   damage: 1
   Health: 10
+  hitAudio: {fileID: 8300000, guid: 956f2143b55478143b69878a1e86c4c5, type: 3}
+  deathAudio: {fileID: 8300000, guid: 5efc454935fe389489f856b358c2e8d1, type: 3}
   rb: {fileID: 0}
   enemyAnimator: {fileID: 3523738284353955033}
 --- !u!50 &3523738284353955038

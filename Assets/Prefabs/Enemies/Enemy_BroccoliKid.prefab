@@ -94,10 +94,9 @@ MonoBehaviour:
   kidPrefab: {fileID: 8978087876848535553}
   babyPrefab: {fileID: 5481204613037920471, guid: 82bf73d422d510d4ab66cdb6eaf78e5e, type: 3}
   kidSpawnPoint: {fileID: 8978087876351784924}
+  hitAudio: {fileID: 8300000, guid: 05bcc8fc7b39ecb4a9343ab11e3eab03, type: 3}
+  deathAudio: {fileID: 8300000, guid: 22288329fae778b4d89d9a7018c28e16, type: 3}
   enemyAnimator: {fileID: 8978087876848535555}
-  isWalking: 0
-  seePlayer: 0
-  isDead: 0
 --- !u!195 &8978087876848535560
 NavMeshAgent:
   m_ObjectHideFlags: 0

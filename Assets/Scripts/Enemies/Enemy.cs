@@ -29,6 +29,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform kidSpawnPoint;
     private string currentState;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitAudio;
+    [SerializeField] private AudioClip deathAudio;
+
     // general private variables
 
     private Coroutine currentAttack;
@@ -233,8 +237,12 @@ public class Enemy : MonoBehaviour
     {
         Health-=shooting.equippedWeapon.damage;
 
-        if(Health <= 0)
+        // hit audio here!!
+
+        if (Health <= 0)
         {
+            // death audio here!!
+
             switch (enemyType)
             {
                 case EnemyType.carrot:
