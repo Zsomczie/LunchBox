@@ -17,6 +17,10 @@ public class PlayerController : MonoBehaviour
 
     // This function is called just one time by Unity the moment the component loads
     public Animator playerAnimator;
+
+    //variables for animation purposes
+    public float horizontalMove;
+    public float verticalMove;
     private void Awake()
     {
         // get a reference to the SpriteRenderer component on this gameObject
@@ -34,6 +38,34 @@ public class PlayerController : MonoBehaviour
 
         movement *= Time.deltaTime;
         //walking animation here
+        horizontalMove = Mathf.Abs(movement.x);
+        verticalMove = movement.y;
+
+        if (verticalMove > 0 && horizontalMove <= Mathf.Abs(verticalMove))
+        {
+            playerAnimator.SetBool("upMove", true);
+            playerAnimator.SetBool("sideMove", false);
+            playerAnimator.SetBool("downMove", false);
+        }
+        else if (horizontalMove > 0 && horizontalMove >= Mathf.Abs(verticalMove))
+        {
+            playerAnimator.SetBool("upMove", false);
+            playerAnimator.SetBool("sideMove", true);
+            playerAnimator.SetBool("downMove", false);
+        }
+        else if (verticalMove < 0 && horizontalMove <= Mathf.Abs(verticalMove))
+        {
+            playerAnimator.SetBool("upMove", false);
+            playerAnimator.SetBool("sideMove", false);
+            playerAnimator.SetBool("downMove", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("upMove", false);
+            playerAnimator.SetBool("sideMove", false);
+            playerAnimator.SetBool("downMove", false);
+        }
+
         transform.Translate(movement);
 
         CharacterRotation();
