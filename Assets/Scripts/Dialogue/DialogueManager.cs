@@ -5,6 +5,7 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -60,6 +61,8 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+
+        Debug.Log("starting dialogue");
 
         ContinueDialogue();
     }
@@ -159,17 +162,14 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SelectFirstChoice()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(choiceButtons[0].gameObject);
-    }
-
     private void EndDialogue()
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
+        Debug.Log("dialogue ended");
+
+        SceneManager.LoadScene("Main");
     }
 }

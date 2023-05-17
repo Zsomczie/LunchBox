@@ -9,6 +9,13 @@ public class StartDialogue : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(DelayBeforeDialogue());
+    }
+
+    private IEnumerator DelayBeforeDialogue()
+    {
+        yield return new WaitForSeconds(0.5f);
+
         DialogueManager.GetInstance().StartDialogue(inkJSON);
     }
 }

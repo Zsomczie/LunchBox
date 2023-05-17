@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System.Globalization;
 
 public class Shooting : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class Shooting : MonoBehaviour
         foreach (var line in lines)
         {
             string[] oneLine = line.Split();
-            weaponDatas.Add(new weaponData(oneLine[0], oneLine[1], int.Parse(oneLine[2]), int.Parse(oneLine[3]), float.Parse(oneLine[4]),float.Parse(oneLine[5]),float.Parse(oneLine[6]),int.Parse(oneLine[7])));
+            weaponDatas.Add(new weaponData(oneLine[0], oneLine[1], int.Parse(oneLine[2]), int.Parse(oneLine[3]), float.Parse(oneLine[4], new CultureInfo("en-UK")),float.Parse(oneLine[5], new CultureInfo("en-UK")),float.Parse(oneLine[6], new CultureInfo("en-UK")),int.Parse(oneLine[7])));
         }
         Debug.Log(weaponDatas[1].FiringTime);
         equippedWeapon = weaponDatas[weaponNumber];
