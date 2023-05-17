@@ -141,6 +141,7 @@ public class EnemyCabbage : MonoBehaviour
             //QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
 
             // death animation here!!
+            enemyAnimator.SetBool("isDead", true);
 
             // death audio here!!
 
