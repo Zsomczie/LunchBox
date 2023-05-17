@@ -130,13 +130,19 @@ public class EnemyCabbage : MonoBehaviour
         Health -= shooting.equippedWeapon.damage;
         if (Health<=0)
         {
-            Destroy(gameObject);
-        }// CHANGE THIS TO MATCH THE WEAPON DAMAGE !!
+            QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
+
+            // death animation here!!
+
+            Destroy(gameObject); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+        }
     }
 
     public IEnumerator RestartAttack()
     {
         isRecharging = true;
+
+        // possible idle animation between attacks here!!
 
         yield return new WaitForSeconds(2f);
 
