@@ -25,6 +25,10 @@ public class EnemyCabbage : MonoBehaviour
     [Header("Health")]
     public float Health=10;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip hitAudio;
+    [SerializeField] private AudioClip deathAudio;
+
     // general private variables
     private PlayerController playerController;
     private Coroutine restartCoroutine;
@@ -129,11 +133,16 @@ public class EnemyCabbage : MonoBehaviour
     public void TakeDamage()
     {
         Health -= shooting.equippedWeapon.damage;
+
+        // hit audio here!!
+
         if (Health<=0)
         {
             //QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
 
             // death animation here!!
+
+            // death audio here!!
 
             Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
         }
