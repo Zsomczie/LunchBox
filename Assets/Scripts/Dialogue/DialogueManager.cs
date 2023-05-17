@@ -120,16 +120,8 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-
-        IEnumerator choose()
-        {
-            yield return new WaitForSeconds(1f);
-            //SceneManager.LoadScene(0);
-            currentStory.ChooseChoiceIndex(choiceIndex);
-            ContinueDialogue();
-        }
-        StartCoroutine(choose());
-       
+        currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueDialogue();
     }
 
     private void HandleTags(List<string> currentTags)
@@ -193,28 +185,14 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
 
-        IEnumerator playGame()
-        {
-            yield return new WaitForSeconds(1f);
-            //SceneManager.LoadScene(0);
-            dialogueIsPlaying = false;
-            dialoguePanel.SetActive(false);
-            dialogueText.text = "";
+        Debug.Log("dialogue ended");
 
-            Debug.Log("dialogue ended");
-
-
-            SceneManager.LoadScene("Main");
-        }
-        StartCoroutine(playGame());
-
-
-<<<<<<< Updated upstream
         dialogueCanvas.SetActive(false);
 
         SceneManager.LoadScene("Main");
-=======
->>>>>>> Stashed changes
     }
 }
