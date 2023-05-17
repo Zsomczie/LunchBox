@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : SoundManager
 {
     [SerializeField]GameObject MainMenuMusic;
     public Sprite ClassySprite;
     public Sprite FancySprite;
     public GameObject playerPrefab;
-    public SoundManager soundManager;
+    //public SoundManager soundManager;
 
     public void Start()
     {
-        soundManager.GetComponent<SoundManager>().Load();
+        //soundManager.GetComponent<SoundManager>().Load();
+        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+
     }
     public void playGame()
     {
@@ -24,7 +26,7 @@ public class MainMenu : MonoBehaviour
             yield return new WaitForSeconds(1f);
             DestroyImmediate(MainMenuMusic);
             Destroy(MainMenuMusic);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(7);
         }
         StartCoroutine(playMenu());
 

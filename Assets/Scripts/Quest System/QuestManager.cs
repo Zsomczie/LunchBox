@@ -10,6 +10,11 @@ public class QuestManager : MonoBehaviour
     public Quest currentQuest;
     public List<Quest> possibleQuests;
 
+
+    private void Start()
+    {
+        DestroyImmediate(GameObject.Find("Sound"));
+    }
     private void Awake()
     {
         if (instance != null)
@@ -35,7 +40,7 @@ public class QuestManager : MonoBehaviour
     {
         if(target == currentQuest.target && !currentQuest.questCompleted)
         {
-            currentQuest.currentKills -= amount;
+            currentQuest.currentKills += amount;
             
             if(currentQuest.currentKills >= currentQuest.neededAmountOfKills)
             {
