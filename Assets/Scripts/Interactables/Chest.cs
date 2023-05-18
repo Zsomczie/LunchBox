@@ -39,7 +39,7 @@ public class Chest : MonoBehaviour
 
     public void WhenOpen()
     {
-        Instantiate(droppedWeapon, gameObject.transform.position - new Vector3(0, 1, 0), Quaternion.identity);
+        Instantiate(droppedWeapon, gameObject.transform.position - new Vector3(0, 2, 0), Quaternion.identity);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

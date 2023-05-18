@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Globalization;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D.Animation;
 
 public class Shooting : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Shooting : MonoBehaviour
     [SerializeField]Vector3 mousePos;
     public GameObject bullet;
     public Transform bulletTransform;
+    public Transform gunTransform;
+    public Transform leftHand, rightHand;
     public bool canFire=true;
     private float timer;
     public float timeBetweenFiring= 0.5f;
@@ -45,6 +48,10 @@ public class Shooting : MonoBehaviour
     public bool empty=false;
     Quaternion offset = Quaternion.Euler(0, 0, 30);
     PlayerController player;
+    bool right = true;
+    bool left = false;
+    [SerializeField] SpriteResolver sprite;
+    bool alreadyChanged = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +71,11 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!alreadyChanged)
+        {
+            sprite.SetCategoryAndLabel("Weapons", equippedWeapon.weaponName);
+            alreadyChanged = true;
+        }
         //Debug.Log(equippedWeapon.weaponType);
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
@@ -92,6 +104,7 @@ public class Shooting : MonoBehaviour
             }
             
             equippedWeapon = weaponDatas[weaponNumber];
+            alreadyChanged = false;
             //currentMagAmmo = equippedWeapon.magCapacity;
         }
 
@@ -107,6 +120,7 @@ public class Shooting : MonoBehaviour
                 weaponNumber--;
             }
             equippedWeapon = weaponDatas[weaponNumber];
+            alreadyChanged = false;
             //currentMagAmmo = equippedWeapon.magCapacity;
         }
         if (Input.GetKeyDown(KeyCode.R) && currentMagAmmo != equippedWeapon.magCapacity && equippedWeapon.weaponType != "beam"&&!reloading
@@ -160,6 +174,26 @@ public class Shooting : MonoBehaviour
             {
                 StartCoroutine(setEmpty());
             }
+        }
+        if (mousePos.x>player.transform.position.x&&left)
+        {
+            gunTransform.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gunTransform.position = rightHand.position;
+            bulletTransform = rightHand.GetChild(0).transform;
+            //bulletTransform.position = new Vector3(bulletTransform.position.x, -0.8f, bulletTransform.position.z);
+            //bulletTransform.position = new Vector3(-bulletTransform.position.x, bulletTransform.position.y, bulletTransform.position.z);
+            left = false;
+            right = true;
+        }
+        else if (mousePos.x<player.transform.position.x&&right)
+        {
+            gunTransform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            gunTransform.position = leftHand.position;
+            bulletTransform = leftHand.GetChild(0).transform;
+            //bulletTransform.position = new Vector3(bulletTransform.position.x, bulletTransform.position.y-1, bulletTransform.position.z);
+            //bulletTransform.position = new Vector3(-bulletTransform.position.x, bulletTransform.position.y, bulletTransform.position.z);
+            right = false;
+            left = true;
         }
         
     }

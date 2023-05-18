@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class Bulletmove : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class Bulletmove : MonoBehaviour
     Shooting shooting;
     public bool fiery=false;
     Vector2 velo;
+    [SerializeField] SpriteResolver sprite;
     // Start is called before the first frame update
     void Start()
     {
+        sprite = gameObject.GetComponent<SpriteResolver>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         rb = GetComponent<Rigidbody2D>();
@@ -77,6 +80,6 @@ public class Bulletmove : MonoBehaviour
     }
     float offsetFlame()
     {
-        return Random.Range(-3f, 3f);
+        return Random.Range(-2.5f, 2.5f);
     }
 }
