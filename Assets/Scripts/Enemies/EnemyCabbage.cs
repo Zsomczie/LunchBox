@@ -14,6 +14,7 @@ public class EnemyCabbage : MonoBehaviour
     [SerializeField] private bool isRolling;
 
     [Header("Player Detection")]
+    [SerializeField] private float detectionRadius;
     public bool playerDetected;
     public GameObject player;
 
@@ -33,6 +34,7 @@ public class EnemyCabbage : MonoBehaviour
     private PlayerController playerController;
     private Coroutine restartCoroutine;
     private Shooting shooting;
+    private SpriteRenderer spriteRenderer;
 
     [Header("For Script References Only")]
     public Rigidbody2D rb;
@@ -43,6 +45,7 @@ public class EnemyCabbage : MonoBehaviour
     void Awake()
     {
         enemyAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         //SetNewDestination();
@@ -83,7 +86,7 @@ public class EnemyCabbage : MonoBehaviour
 
     private void DetectPlayer()
     {
-        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, 5f, LayerMask.GetMask("Player"));
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, detectionRadius, LayerMask.GetMask("Player"));
 
         if (playerCollider != null)
         {

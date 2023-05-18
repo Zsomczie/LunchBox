@@ -69,8 +69,6 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         dialogueCanvas.SetActive(true);
 
-        Debug.Log("starting dialogue");
-
         ContinueDialogue();
     }
 
@@ -94,9 +92,16 @@ public class DialogueManager : MonoBehaviour
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
-        Debug.Log(currentStory.currentChoices.Count);
 
-        //if
+        if(currentChoices.Count > 0)
+        {
+            continueButton.gameObject.SetActive(false);
+        }
+
+        else
+        {
+            continueButton.gameObject.SetActive(true);
+        }
 
         if(currentChoices.Count > choiceButtons.Length)
         {
@@ -109,7 +114,6 @@ public class DialogueManager : MonoBehaviour
             choiceButtons[index].gameObject.SetActive(true);
             choicesText[index].text = choice.text;
             index++;
-            Debug.Log(choice.text);
         }
 
         for(int i = index; i < choiceButtons.Length; i++)
@@ -181,6 +185,7 @@ public class DialogueManager : MonoBehaviour
                             break;
 
                         case "racist":
+                            //potatoNameText.text = "The " + "Talking" + "Racist Potato";
                             potatoNameText.text = "The Racist Potato";
                             break;
                     }
@@ -198,8 +203,6 @@ public class DialogueManager : MonoBehaviour
             dialogueIsPlaying = false;
             dialoguePanel.SetActive(false);
             dialogueText.text = "";
-
-            Debug.Log("dialogue ended");
 
             dialogueCanvas.SetActive(false);
             SceneManager.LoadScene("Main");
