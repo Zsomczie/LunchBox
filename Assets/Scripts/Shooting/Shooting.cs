@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
         }
     }
     Camera mainCam;
-    [SerializeField]Vector3 mousePos;
+    [SerializeField]public Vector3 mousePos;
     public GameObject bullet;
     public Transform bulletTransform;
     public Transform gunTransform;
@@ -52,6 +52,7 @@ public class Shooting : MonoBehaviour
     bool left = false;
     [SerializeField] SpriteResolver sprite;
     bool alreadyChanged = false;
+    public Vector2 mousePosV2;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +79,7 @@ public class Shooting : MonoBehaviour
         }
         //Debug.Log(equippedWeapon.weaponType);
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mousePosV2 = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x)*Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);

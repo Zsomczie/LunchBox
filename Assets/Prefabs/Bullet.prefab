@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2664914472339810873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.28, y: -1.78, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 1.26171, y: -1.79829, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23b47e88808cdfe43bf4d355286fcb0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -140,9 +140,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010004818, y: 0.0010005435}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.03277598
 --- !u!114 &6463933330504490187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +156,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library:
-  - m_Name: New Category
+  - m_Name: AmmoTypes
     m_Hash: 0
-    m_CategoryList: []
+    m_CategoryList:
+    - m_Name: Banana
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 23b47e88808cdfe43bf4d355286fcb0c, type: 3}
+    - m_Name: Lemon1
+      m_Hash: 0
+      m_Sprite: {fileID: -739921652, guid: 095c47c7ab49c1941802c7785dc09830, type: 3}
+    - m_Name: Lemon2
+      m_Hash: 0
+      m_Sprite: {fileID: 2095128786, guid: 095c47c7ab49c1941802c7785dc09830, type: 3}
+    - m_Name: Lemon3
+      m_Hash: 0
+      m_Sprite: {fileID: 575237396, guid: 095c47c7ab49c1941802c7785dc09830, type: 3}
+    - m_Name: Lemon4
+      m_Hash: 0
+      m_Sprite: {fileID: -263337088, guid: 095c47c7ab49c1941802c7785dc09830, type: 3}
+    - m_Name: Lemon5
+      m_Hash: 0
+      m_Sprite: {fileID: 1329754757, guid: 095c47c7ab49c1941802c7785dc09830, type: 3}
+    - m_Name: Fruitfly1
+      m_Hash: 0
+      m_Sprite: {fileID: -549459314, guid: 79a76060a9c56194e8e3e34e70975aa8, type: 3}
+    - m_Name: Fruitfly2
+      m_Hash: 0
+      m_Sprite: {fileID: -321155126, guid: 79a76060a9c56194e8e3e34e70975aa8, type: 3}
+    - m_Name: Fruitfly3
+      m_Hash: 0
+      m_Sprite: {fileID: 1853717347, guid: 79a76060a9c56194e8e3e34e70975aa8, type: 3}
+    - m_Name: Corn1
+      m_Hash: 0
+      m_Sprite: {fileID: -239830910, guid: 5974c851d43a44441ab5014d033c8bdb, type: 3}
+    - m_Name: Corn2
+      m_Hash: 0
+      m_Sprite: {fileID: -1107740206, guid: 5974c851d43a44441ab5014d033c8bdb, type: 3}
+    - m_Name: Corn3
+      m_Hash: 0
+      m_Sprite: {fileID: -1617089791, guid: 5974c851d43a44441ab5014d033c8bdb, type: 3}
+    - m_Name: Corn4
+      m_Hash: 0
+      m_Sprite: {fileID: -103928793, guid: 5974c851d43a44441ab5014d033c8bdb, type: 3}
+    - m_Name: Starfruit
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 4d1dfd56d654e0846ad695d5aab7230e, type: 3}
+    - m_Name: Banak
+      m_Hash: 0
+      m_Sprite: {fileID: 21300000, guid: 23b47e88808cdfe43bf4d355286fcb0c, type: 3}
   m_SpriteLibraryAsset: {fileID: 0}
 --- !u!114 &3742677424417780849
 MonoBehaviour:
@@ -172,6 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 0
-  m_labelHash: 0
-  m_SpriteKey: 0
+  m_CategoryHash: 3.5186274e-14
+  m_labelHash: 1.9676202e-36
+  m_SpriteKey: 2.2931131e-24
