@@ -11,6 +11,7 @@ public class Bulletmove : MonoBehaviour
     [SerializeField] Vector3 direction;
     Shooting shooting;
     public bool fiery=false;
+    Vector2 velo;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,8 @@ public class Bulletmove : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(0.3f,0.3f,0.3f);
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-            rb.velocity = new Vector2(direction.x+offsetFlame(), direction.y+offsetFlame()).normalized * (speed-5f);
+            velo = new Vector2(direction.x + offsetFlame(), direction.y + offsetFlame()).normalized*(speed-5f);
+            rb.velocity = velo;
             fiery = true;
             Destroy(gameObject, 1f);
         }
@@ -45,8 +47,21 @@ public class Bulletmove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if (fiery)
+        {
+            
+            speed -= 0.06f;
+
+        }
+    }
+    private void Update()
+    {
+        if (fiery)
+        {
+            rb.velocity = velo.normalized * (speed - 5f);
+        }
     }
     float offsetx() 
     {
