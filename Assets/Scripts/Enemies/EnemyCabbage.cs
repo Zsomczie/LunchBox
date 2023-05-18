@@ -27,6 +27,7 @@ public class EnemyCabbage : MonoBehaviour
     public float Health=10;
 
     [Header("Audio")]
+    [SerializeField] private AudioSource cabbageAudio;
     [SerializeField] private AudioClip hitAudio;
     [SerializeField] private AudioClip deathAudio;
 
@@ -138,6 +139,10 @@ public class EnemyCabbage : MonoBehaviour
         Health -= shooting.equippedWeapon.damage;
 
         // hit audio here!!
+        if (Health>0)
+        {
+            cabbageAudio.PlayOneShot(hitAudio);
+        }
 
         if (Health<=0)
         {
@@ -147,6 +152,7 @@ public class EnemyCabbage : MonoBehaviour
             enemyAnimator.SetBool("isDead", true);
 
             // death audio here!!
+            cabbageAudio.PlayOneShot(deathAudio);
 
             Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
         }
