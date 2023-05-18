@@ -330,30 +330,38 @@ public class Enemy : MonoBehaviour
 
     private void SpawnNextBroccoliState(string state, int index)
     {
+        GameObject newBroccoli = new GameObject();
+
         switch (state)
-        {
+        { 
+
             case "kid":
                 if(index == 0)
                 {
-                    Instantiate(kidPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(kidPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
                 }
 
                 else
                 {
-                    Instantiate(kidPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(kidPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
                 }
+
+                newBroccoli.GetComponent<SpriteRenderer>().sortingOrder = 3;
 
                 break;
             case "baby":
                 if (index == 0)
                 {
-                    Instantiate(babyPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(babyPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
                 }
 
                 else
                 {
-                    Instantiate(babyPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(babyPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
                 }
+
+                newBroccoli.GetComponent<SpriteRenderer>().sortingOrder = 4;
+
                 break;
             default:
                 Debug.LogError("No next state for " + gameObject.name + " could be spawned!");

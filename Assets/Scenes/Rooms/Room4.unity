@@ -130,13 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5820046918258107281, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
-      propertyPath: m_Radius
-      value: 1.85
-      objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107288, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_Name
       value: Enemy_Carrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820046918258107288, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107291, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_RootOrder
@@ -1732,7 +1732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8868563430829251377, guid: 279dd8f22799e8f449ba42e3e95e77b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8868563430829251378, guid: 279dd8f22799e8f449ba42e3e95e77b0, type: 3}
       propertyPath: m_RootOrder
@@ -1740,11 +1740,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8868563430829251378, guid: 279dd8f22799e8f449ba42e3e95e77b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.76697344
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 8868563430829251378, guid: 279dd8f22799e8f449ba42e3e95e77b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.339646
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 8868563430829251378, guid: 279dd8f22799e8f449ba42e3e95e77b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1838,6 +1838,10 @@ PrefabInstance:
     - target: {fileID: 1493557972450761204, guid: d46f967f7922bc14784d75e0c9f9dca3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493557972450761205, guid: d46f967f7922bc14784d75e0c9f9dca3, type: 3}
+      propertyPath: m_VoxelSize
+      value: 0.29666665
       objectReference: {fileID: 0}
     - target: {fileID: 1493557972450761205, guid: d46f967f7922bc14784d75e0c9f9dca3, type: 3}
       propertyPath: m_NavMeshData
@@ -2086,8 +2090,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.01, y: 1.7}
-  m_Size: {x: 0.56, y: 5.7}
+  m_Offset: {x: 3.01, y: 1.43}
+  m_Size: {x: 0.97, y: 5.7}
   m_Direction: 0
 --- !u!70 &2040201422
 CapsuleCollider2D:
@@ -2102,8 +2106,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.01, y: -1.7}
-  m_Size: {x: 0.56, y: 5.7}
+  m_Offset: {x: -3.01, y: -1.42}
+  m_Size: {x: 0.97, y: 5.7}
   m_Direction: 0
 --- !u!1 &2046642358
 GameObject:

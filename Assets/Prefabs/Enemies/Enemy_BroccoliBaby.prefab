@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 3
   targetPosition: {x: 0, y: 0, z: 0}
+  detectionRadius: 0
   playerDetected: 0
   player: {fileID: 0}
   closeEnoughToAttack: 0
@@ -78,7 +79,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
