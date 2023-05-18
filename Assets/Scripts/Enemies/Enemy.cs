@@ -112,7 +112,19 @@ public class Enemy : MonoBehaviour
 
     private void SetNewDestination()
     {
-        navMeshAgent.SetDestination(new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f)));
+        Vector3 newDirection = new Vector3(Random.Range(-10f, 10f), Random.Range(-5f, 5f));
+
+        if(newDirection.x > transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
+
+        navMeshAgent.SetDestination(newDirection);
 
         // walk animation here!!
         enemyAnimator.SetBool("isWalking", true);
@@ -201,7 +213,15 @@ public class Enemy : MonoBehaviour
             targetPosition = player.transform.position;
             navMeshAgent.SetDestination(targetPosition);
 
-            // possible animation flips here!!
+            if(targetPosition.x > transform.position.x)
+            {
+                spriteRenderer.flipX = true;
+            }
+
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
 
             if (closeEnoughToAttack)
             {
