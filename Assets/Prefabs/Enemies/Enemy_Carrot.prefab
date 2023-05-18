@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 5820046918258107291}
   - component: {fileID: 5820046918258107295}
   - component: {fileID: 5820046918258107281}
-  - component: {fileID: 5820046918258107294}
   - component: {fileID: 5820046918258107293}
   - component: {fileID: 5820046918258107290}
   - component: {fileID: 774049112}
+  - component: {fileID: 2558433199635886611}
   m_Layer: 0
   m_Name: Enemy_Carrot
   m_TagString: Untagged
@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   targetPosition: {x: 0, y: 0, z: 0}
+  detectionRadius: 6
   playerDetected: 0
   player: {fileID: 0}
   closeEnoughToAttack: 0
@@ -72,7 +73,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5820046918258107288}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_Radius: 1.91
   m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
@@ -81,26 +82,10 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.3
-  m_BaseOffset: 0
+  m_Height: 1.12
+  m_BaseOffset: 0.99
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!58 &5820046918258107294
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820046918258107288}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!50 &5820046918258107293
 Rigidbody2D:
   serializedVersion: 4
@@ -183,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1606613051, guid: d5345d772f5395d41b5208bbb87fcabd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -195,3 +180,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2558433199635886611
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820046918258107288}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.48}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 2}
+    newSize: {x: 4, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.4, y: 1.13}
+  m_EdgeRadius: 0

@@ -17,6 +17,8 @@ public class CabbagePlayerDetection : MonoBehaviour
     {
         if (collision.CompareTag("Player") && enemyCabbage.isAttacking)
         {
+            Debug.Log("cabbage saw the player");
+
             if (!playerController.invincible)
             {
                 enemyCabbage.DealDamage();
