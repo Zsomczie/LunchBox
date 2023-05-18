@@ -36,13 +36,13 @@ public class Bulletmove : MonoBehaviour
             velo = new Vector2(direction.x + offsetFlame(), direction.y + offsetFlame()).normalized*(speed-5f);
             rb.velocity = velo;
             fiery = true;
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, RandomDestroyTimeBeam());
         }
         else if (shooting.equippedWeapon.weaponType=="shotgun")
         {
             sprite.SetCategoryAndLabel("AmmoTypes", "Corn" + CornAmmo());
             rb.velocity = new Vector2(direction.x + offsetshotgun(), direction.y + offsetshotgun()).normalized * randomizeSpeed();
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, RandomDestroyTimeShotgun());
         }
         else if (shooting.equippedWeapon.weaponName == "Fruitfly")
         {
@@ -71,7 +71,7 @@ public class Bulletmove : MonoBehaviour
         if (fiery)
         {
             
-            speed -= 0.06f;
+            speed -= 0.03f;
 
         }
         
@@ -91,7 +91,6 @@ public class Bulletmove : MonoBehaviour
                 rotatedAlready = true;
 
             }
-            Debug.Log("yo");
             transform.position=Vector2.MoveTowards(transform.position,shooting.mousePos , 8 * Time.deltaTime);
         }
     }
@@ -122,5 +121,13 @@ public class Bulletmove : MonoBehaviour
     int FruitFlyAmmo()
     {
         return Random.Range(1, 4);
+    }
+    float RandomDestroyTimeShotgun() 
+    {
+        return Random.Range(0.3f, 0.7f);
+    }
+    float RandomDestroyTimeBeam()
+    {
+        return Random.Range(0.3f, 1f);
     }
 }

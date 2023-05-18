@@ -8,13 +8,16 @@ public class Door : MonoBehaviour
     public bool isLocked = true;
     public SpriteRenderer sprite;
     public int roomState = 0;
-
+    [SerializeField] GameObject playerSpawnPoint;
+    [SerializeField] GameObject player;
     private int roomNumber;
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        playerSpawnPoint = GameObject.Find("PlayerSpawnPoint");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class Door : MonoBehaviour
 
             if (roomNumber >= 0)
             {
+                player.transform.position = playerSpawnPoint.transform.position;
                 SceneManager.LoadScene("Room" + roomNumber);
             }
 
@@ -57,11 +61,11 @@ public class Door : MonoBehaviour
                 roomNumber = -1;
                 break;
             case 0:
-                roomNumber = Random.Range(1, 3);
+                roomNumber = Random.Range(1, 4);
                 break;
 
             case 1:
-                roomNumber = Random.Range(4, 6);
+                roomNumber = Random.Range(4, 7);
                 break;
 
             case 2:

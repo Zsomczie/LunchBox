@@ -8,6 +8,7 @@ TagManager:
   - Cabbage
   - HatManager
   - Enemy
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

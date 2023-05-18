@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &136325775
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3824319
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12217866
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135814, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066160505201135815, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
+      propertyPath: m_Name
+      value: PlayerSpawnPoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 349b9adcadb9cb946bb533d8c74cd0ea, type: 3}
 --- !u!1001 &274949199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -336,6 +393,8 @@ GameObject:
   m_Component:
   - component: {fileID: 422240087}
   - component: {fileID: 422240089}
+  - component: {fileID: 422240091}
+  - component: {fileID: 422240090}
   m_Layer: 0
   m_Name: InRoomWalls
   m_TagString: Untagged
@@ -359,6 +418,34 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &422240089
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422240086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.8, y: 0.06}
+  m_Size: {x: 14.29, y: 0.92}
+  m_Direction: 1
+--- !u!114 &422240090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422240086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59cee291488efa4c8186b0282a41925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &422240091
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5687,6 +5774,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1282882092}
   - component: {fileID: 1282882093}
+  - component: {fileID: 1282882095}
+  - component: {fileID: 1282882094}
   m_Layer: 0
   m_Name: BorderWalls
   m_TagString: Untagged
@@ -5720,6 +5809,43 @@ EdgeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -10.5, y: 1.7}
+  - {x: -10.5, y: -9.1}
+  - {x: 10.5, y: -9.1}
+  - {x: 10.5, y: 1.7}
+  - {x: -10.5, y: 1.7}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &1282882094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282882091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59cee291488efa4c8186b0282a41925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!68 &1282882095
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282882091}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

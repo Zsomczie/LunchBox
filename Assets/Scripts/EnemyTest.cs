@@ -18,14 +18,17 @@ public class EnemyTest : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.transform.name.Contains("Bullet"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.transform.name.Contains("Bullet"))
         {
-            Destroy(this.gameObject);
+            Destroy(collision.gameObject);
         }
 
     }
