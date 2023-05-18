@@ -8,6 +8,9 @@ public class Door : MonoBehaviour
     public bool isLocked = true;
     public SpriteRenderer sprite;
     public int roomState = 0;
+
+    private int roomNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,17 +32,30 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("trigger enter");
+
         if (collision.transform.name.Contains("Player")&&!isLocked)
         {
-            SceneManager.LoadScene("Room" + GenerateRoom());
+            roomNumber = GenerateRoom();
+
+            if (roomNumber >= 0)
+            {
+                SceneManager.LoadScene("Room" + roomNumber);
+            }
+
+            else
+            {
+                Debug.Log("Can't return to main room!");
+            }
         }
     }
     public int GenerateRoom()
     {
-        int roomNumber = 0;
-
         switch (roomState)
         {
+            case -1:
+                roomNumber = -1;
+                break;
             case 0:
                 roomNumber = Random.Range(1, 3);
                 break;

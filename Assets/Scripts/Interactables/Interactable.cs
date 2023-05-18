@@ -43,12 +43,14 @@ public class Interactable : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E) && IsActiveNow && !pickedup && gameObject.transform.name.Contains("Door")&&player.keys>0 /*&& GameObject.Find("Player").GetComponent<PlayerController>().health < 6*/)
         {
+            Debug.Log("door is open");
             door.isLocked = false;
             player.keys--;
             Destroy(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.E) && IsActiveNow && !pickedup && gameObject.transform.name.Contains("Chest") && player.keys>0)
         {
+            Debug.Log("chest is open");
             chest.isOpen = true;
             player.keys--;
         }
