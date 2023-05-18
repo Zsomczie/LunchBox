@@ -130,21 +130,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5820046918258107281, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
+      propertyPath: m_Radius
+      value: 1.85
+      objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107288, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_Name
       value: Enemy_Carrot
       objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107291, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107291, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.0143
+      value: 5.12
       objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107291, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5840843
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 5820046918258107291, guid: 8134004707f2b63479d10a4794b52d8c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1656,7 +1660,7 @@ Transform:
   - {fileID: 615298217}
   - {fileID: 2040201420}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615298216
 GameObject:
@@ -1969,7 +1973,7 @@ Transform:
   - {fileID: 27971862}
   - {fileID: 2046642359}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2011548900
 PrefabInstance:
