@@ -301,7 +301,6 @@ public class Enemy : MonoBehaviour
 
                 case EnemyType.broccoliKid:
                     int babysToSpawn = 2;
-                    enemyAudio.pitch = 1.3f;
                     enemyAudio.PlayOneShot(deathAudio);
                     for (int i = 0; i < babysToSpawn; i++)
                     {
@@ -318,7 +317,6 @@ public class Enemy : MonoBehaviour
                     break;
 
                 case EnemyType.broccoliBaby:
-                    enemyAudio.pitch = 1.6f;
                     enemyAudio.PlayOneShot(deathAudio);
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
