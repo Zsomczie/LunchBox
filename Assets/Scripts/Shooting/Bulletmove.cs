@@ -22,9 +22,11 @@ public class Bulletmove : MonoBehaviour
         Vector3 rotation = transform.position - mousePos;
         if (shooting.equippedWeapon.weaponType=="beam")
         {
-            rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
+            gameObject.transform.localScale = new Vector3(0.3f,0.3f,0.3f);
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            rb.velocity = new Vector2(direction.x+offsetFlame(), direction.y+offsetFlame()).normalized * (speed-5f);
             fiery = true;
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 1f);
         }
         else if (shooting.equippedWeapon.weaponType=="shotgun")
         {
@@ -57,5 +59,9 @@ public class Bulletmove : MonoBehaviour
     float randomizeSpeed() 
     {
         return Random.Range(8f, 10f);
+    }
+    float offsetFlame()
+    {
+        return Random.Range(-3f, 3f);
     }
 }

@@ -44,10 +44,12 @@ public class Shooting : MonoBehaviour
     public bool reloading;
     public bool empty=false;
     Quaternion offset = Quaternion.Euler(0, 0, 30);
+    PlayerController player;
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        player = GetComponentInParent<PlayerController>();
         string[] lines = File.ReadAllLines("Assets/Data/weaponinfo.txt");
         foreach (var line in lines)
         {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2664914472339810872}
   - component: {fileID: 6483765651317116093}
   - component: {fileID: -4210070486274078845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   mousePos: {x: 0, y: 0, z: 0}
   speed: 10
   direction: {x: 0, y: 0, z: 0}
+  fiery: 0
 --- !u!50 &6483765651317116093
 Rigidbody2D:
   serializedVersion: 4

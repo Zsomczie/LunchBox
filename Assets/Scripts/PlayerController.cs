@@ -9,8 +9,9 @@ public class PlayerController : MonoBehaviour
     public int health = 6;
     public bool invincible;
     public int keys;
-    [SerializeField] bool isShielding = false;
+    [SerializeField] public bool isShielding = false;
     [SerializeField] GameObject shield;
+    private Shooting shooting;
     
     // variable to hold a reference to our SpriteRenderer component
     private SpriteRenderer Player;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         // get a reference to the SpriteRenderer component on this gameObject
         Player = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
+        shooting = GetComponentInChildren<Shooting>();
     }
     // Update is called once per frame
     void Update()
@@ -82,9 +84,11 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("lol");
                 shield.SetActive(true);
+                invincible = true;
                 isShielding = true;
                 yield return new WaitForSeconds(2f);
                 shield.SetActive(false);
+                invincible = false;
                 yield return new WaitForSeconds(5f);
                 isShielding = false;
                 
