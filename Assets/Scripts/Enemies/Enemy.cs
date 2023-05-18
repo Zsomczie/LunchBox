@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
     private string currentState;
 
     [Header("Audio")]
+    [SerializeField] private AudioSource enemyAudio;
     [SerializeField] private AudioClip hitAudio;
     [SerializeField] private AudioClip deathAudio;
 
@@ -260,6 +261,10 @@ public class Enemy : MonoBehaviour
         Health-=shooting.equippedWeapon.damage;
 
         // hit audio here!!
+        if (Health > 0)
+        {
+            enemyAudio.PlayOneShot(hitAudio);
+        }
 
         if (Health <= 0)
         {
@@ -271,7 +276,7 @@ public class Enemy : MonoBehaviour
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.carrot, 1);
                     
                     navMeshAgent.isStopped = true;
-
+                    enemyAudio.PlayOneShot(deathAudio);
                     enemyAnimator.SetBool("isDead", true);
 
                     Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
@@ -279,7 +284,7 @@ public class Enemy : MonoBehaviour
 
                 case EnemyType.broccoliParent:
                     int kidsToSpawn = 2;
-
+                    enemyAudio.PlayOneShot(deathAudio);
                     for (int i = 0; i < kidsToSpawn; i++)
                     {
                         SpawnNextBroccoliState("kid", i);
@@ -296,7 +301,7 @@ public class Enemy : MonoBehaviour
 
                 case EnemyType.broccoliKid:
                     int babysToSpawn = 2;
-
+                    enemyAudio.PlayOneShot(deathAudio);
                     for (int i = 0; i < babysToSpawn; i++)
                     {
                         SpawnNextBroccoliState("baby", i);
@@ -312,6 +317,7 @@ public class Enemy : MonoBehaviour
                     break;
 
                 case EnemyType.broccoliBaby:
+                    enemyAudio.PlayOneShot(deathAudio);
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
                     navMeshAgent.isStopped = true;
@@ -330,30 +336,38 @@ public class Enemy : MonoBehaviour
 
     private void SpawnNextBroccoliState(string state, int index)
     {
+        GameObject newBroccoli = new GameObject();
+
         switch (state)
-        {
+        { 
+
             case "kid":
                 if(index == 0)
                 {
-                    Instantiate(kidPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(kidPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
                 }
 
                 else
                 {
-                    Instantiate(kidPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(kidPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
                 }
+
+                newBroccoli.GetComponent<SpriteRenderer>().sortingOrder = 3;
 
                 break;
             case "baby":
                 if (index == 0)
                 {
-                    Instantiate(babyPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(babyPrefab, kidSpawnPoint.GetChild(0).transform.position, Quaternion.identity);
                 }
 
                 else
                 {
-                    Instantiate(babyPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
+                    newBroccoli = Instantiate(babyPrefab, kidSpawnPoint.GetChild(1).transform.position, Quaternion.identity);
                 }
+
+                newBroccoli.GetComponent<SpriteRenderer>().sortingOrder = 4;
+
                 break;
             default:
                 Debug.LogError("No next state for " + gameObject.name + " could be spawned!");
