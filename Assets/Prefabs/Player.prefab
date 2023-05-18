@@ -1075,6 +1075,7 @@ MonoBehaviour:
   keys: 0
   isShielding: 0
   shield: {fileID: 1268124617}
+  hat: {fileID: 0}
   playerAnimator: {fileID: -7357105789492207246}
   horizontalMove: 0
   verticalMove: 0
