@@ -20,7 +20,8 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Quest Choices")]
     [SerializeField] private GameObject[] choiceButtons;
-    [SerializeField] private TextMeshProUGUI[] choicesText; 
+    [SerializeField] private TextMeshProUGUI[] choicesText;
+
     // private variables
     private Story currentStory;
     private bool dialogueIsPlaying;
@@ -75,17 +76,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            IEnumerator waitALittle()
-            {
-                yield return new WaitForSeconds(1f);
-                dialogueText.text = currentStory.Continue();
+            dialogueText.text = currentStory.Continue();
 
-                HandleTags(currentStory.currentTags);
+            HandleTags(currentStory.currentTags);
 
-                DisplayChoices();
-            }
-            StartCoroutine(waitALittle());
-
+            DisplayChoices();
         }
 
         else
@@ -191,7 +186,7 @@ public class DialogueManager : MonoBehaviour
 
                         case "racist":
                             //potatoNameText.text = "The " + "Talking" + "Racist Potato";
-                            potatoNameText.text = "The "+ "<s>Talking</s> " + "<b>Racist </b>" +"Potato";
+                            potatoNameText.text = "The Racist Potato";
                             break;
                     }
                     break;
