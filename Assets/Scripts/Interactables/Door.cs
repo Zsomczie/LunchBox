@@ -25,12 +25,12 @@ public class Door : MonoBehaviour
     {
         if (isLocked)
         {
-            sprite.color = Color.red;
+            //sprite.color = Color.red;
 
         }
         if (!isLocked)
         {
-            sprite.color = Color.black;
+            //sprite.color = Color.black;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

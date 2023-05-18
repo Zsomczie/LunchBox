@@ -47,7 +47,7 @@ public class Shooting : MonoBehaviour
     public bool reloading;
     public bool empty=false;
     [SerializeField] private AudioSource gun;
-    [SerializeField] private AudioSource gunFry;
+    //[SerializeField] private AudioSource gunFry;
     [SerializeField] private AudioClip shotgunShoot;
     [SerializeField] private AudioClip shotgunReload;
     [SerializeField] private AudioClip beamShoot;
@@ -64,6 +64,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] SpriteResolver sprite;
     bool alreadyChanged = false;
     public Vector2 mousePosV2;
+    bool firePlaying=false;
 
     // Start is called before the first frame update
     void Start()
@@ -167,56 +168,60 @@ public class Shooting : MonoBehaviour
             StartCoroutine(reload());
 
         }
-        if (Input.GetMouseButtonUp(0)&&equippedWeapon.weaponName=="Lemon")
-        {
-            StopCoroutine(waitForStop());
-            gun.Stop();
-            gunFry.Stop();
-
-        }
-        if (Input.GetMouseButtonDown(0) && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
+        if (Input.GetMouseButtonDown(0) && canFire && equippedWeapon.currentAmmo != 0 && !reloading&&!firePlaying)
         {
             if (equippedWeapon.weaponName == "Lemon")
             {
-                StartCoroutine(waitForStop());
+                firePlaying = true;
+                gun.PlayOneShot(beamShoot);
             }
         }
-        
-        IEnumerator waitForStop()
+        if (Input.GetMouseButtonUp(0) && equippedWeapon.weaponName == "Lemon"&&firePlaying)
         {
-            gun.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(4.8f);
-            gunFry.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(0.2f);
             gun.Stop();
-            yield return new WaitForSeconds(4.8f);
-            gun.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(0.2f);
-            gunFry.Stop();
-            yield return new WaitForSeconds(4.8f);
-            if (Input.GetMouseButtonUp(0))
-            gunFry.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(0.2f);
-            gun.Stop();
-            yield return new WaitForSeconds(4.8f);
-            if (Input.GetMouseButtonUp(0))
-            gun.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(0.2f);
-            gunFry.Stop();
-            yield return new WaitForSeconds(4.8f);
-
-            gunFry.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(0.2f);
-            gun.Stop();
-            yield return new WaitForSeconds(4.8f);
-            gun.PlayOneShot(beamShoot);
-            yield return new WaitForSeconds(0.2f);
-            gunFry.Stop();
-            StopCoroutine(waitForStop());
-
-            //gun.PlayOneShot(beamShoot);
-
         }
+
+        //IEnumerator waitForStop()
+        //{
+        //    gun.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(4.8f);
+        //    if (Input.GetMouseButtonUp(0))
+        //    {
+        //        gun.Stop();
+        //        gunFry.Stop();
+        //        yield break;
+        //    }
+        //    gunFry.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(0.2f);
+        //    gun.Stop();
+        //    yield return new WaitForSeconds(4.8f);
+        //    gun.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(0.2f);
+        //    gunFry.Stop();
+        //    yield return new WaitForSeconds(4.8f);
+        //    if (Input.GetMouseButtonUp(0))
+        //    gunFry.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(0.2f);
+        //    gun.Stop();
+        //    yield return new WaitForSeconds(4.8f);
+        //    if (Input.GetMouseButtonUp(0))
+        //    gun.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(0.2f);
+        //    gunFry.Stop();
+        //    yield return new WaitForSeconds(4.8f);
+
+        //    gunFry.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(0.2f);
+        //    gun.Stop();
+        //    yield return new WaitForSeconds(4.8f);
+        //    gun.PlayOneShot(beamShoot);
+        //    yield return new WaitForSeconds(0.2f);
+        //    gunFry.Stop();
+        //    StopCoroutine(waitForStop());
+
+        //    //gun.PlayOneShot(beamShoot);
+
+        //}
         if (Input.GetMouseButton(0) && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
         {
 
