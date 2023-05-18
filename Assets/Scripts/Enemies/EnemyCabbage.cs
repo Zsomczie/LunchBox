@@ -27,9 +27,12 @@ public class EnemyCabbage : MonoBehaviour
     public float Health=10;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource cabbageAudio;
+    [SerializeField] public AudioSource cabbageAudio;
     [SerializeField] private AudioClip hitAudio;
     [SerializeField] private AudioClip deathAudio;
+    [SerializeField] private AudioClip playerHit;
+    [SerializeField] private AudioClip playerDie;
+    public float cabbagePitch;
 
     // general private variables
     private PlayerController playerController;
@@ -45,6 +48,7 @@ public class EnemyCabbage : MonoBehaviour
 
     void Awake()
     {
+        cabbagePitch = cabbageAudio.pitch;
         enemyAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -124,6 +128,17 @@ public class EnemyCabbage : MonoBehaviour
         enemyAnimator.SetBool("attackStart", true);
 
         isRolling = false;
+        if (playerController.health > 0)
+        {
+            cabbageAudio.pitch = 1.6f;
+            cabbageAudio.PlayOneShot(playerHit);
+
+        }
+        else if (playerController.health <= 0)
+        {
+            cabbageAudio.pitch = 1.6f;
+            cabbageAudio.PlayOneShot(playerDie);
+        }
         playerController.health -= damage;
         rb.velocity = Vector2.zero;
 
