@@ -53,8 +53,6 @@ public class EnemyCabbage : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
-        //SetNewDestination();
-        //currentMovementDelay = StartCoroutine(DestinationChangeDelay());
     }
 
     void Update()
@@ -145,7 +143,6 @@ public class EnemyCabbage : MonoBehaviour
         if (restartCoroutine == null)
         {
             StartCoroutine(RestartAttack());
-            Debug.Log("restart after damage");
         }
     }
 
@@ -161,7 +158,7 @@ public class EnemyCabbage : MonoBehaviour
 
         if (Health<=0)
         {
-            //QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
+            QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.cabbage, 1);
 
             // death animation here!!
             enemyAnimator.SetBool("isDead", true);
