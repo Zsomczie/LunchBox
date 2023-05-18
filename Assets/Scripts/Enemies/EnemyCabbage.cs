@@ -185,4 +185,10 @@ public class EnemyCabbage : MonoBehaviour
 
         isRecharging = false;
     }
+
+    public void GameOver()
+    {
+        Vector2 stopPosition = transform.position;
+        transform.position = stopPosition;
+    }
 }

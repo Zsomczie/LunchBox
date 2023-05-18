@@ -14,7 +14,13 @@ public class Interactable : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         door = GameObject.Find("Door").GetComponent<Door>();
-        chest = GameObject.Find("Chest").GetComponent<Chest>();
+
+        GameObject chestObject = GameObject.Find("Chest");
+
+        if(chestObject != null)
+        {
+            chest = chestObject.GetComponent<Chest>();
+        }
     }
 
     // Update is called once per frame

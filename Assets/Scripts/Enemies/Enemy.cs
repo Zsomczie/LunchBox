@@ -79,7 +79,6 @@ public class Enemy : MonoBehaviour
                 isAttacking = true;
                 navMeshAgent.isStopped = true;
 
-                // spotting animation here!!
                 enemyAnimator.SetBool("seePlayer", true);
 
                 StartCoroutine(SpottingDelayAfterPlayerDetection());
@@ -130,17 +129,13 @@ public class Enemy : MonoBehaviour
 
         navMeshAgent.SetDestination(newDirection);
 
-        // walk animation here!!
         enemyAnimator.SetBool("isWalking", true);
-
-        // maybe turn this into a coroutine to cope with the direction flips if it doesn't work here?
     }
 
     private IEnumerator DestinationChangeDelay()
     {
         yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
 
-        // idle animation here!!
         enemyAnimator.SetBool("isWalking", false);
 
         navMeshAgent.isStopped = true;
@@ -157,7 +152,6 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(1.5f, 3.5f));
 
-        // idle animation here!!
         enemyAnimator.SetBool("isWalking", false);
 
         navMeshAgent.isStopped = true;
@@ -178,7 +172,6 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("player has been detected");
 
-            // spotting animation here!!
             enemyAnimator.SetBool("seePlayer", true);
 
             player = playerCollider.gameObject;
@@ -210,8 +203,6 @@ public class Enemy : MonoBehaviour
         navMeshAgent.isStopped = false;
         targetPosition = player.transform.position;
 
-        // charge animation here!!
-
         while (isAttacking)
         {
             targetPosition = player.transform.position;
@@ -239,7 +230,6 @@ public class Enemy : MonoBehaviour
 
     private void DealDamage()
     {
-        // attack animation here!!
         if (playerController.invincible==false)
         {
 
@@ -276,7 +266,6 @@ public class Enemy : MonoBehaviour
     {
         Health-=shooting.equippedWeapon.damage;
 
-        // hit audio here!!
         if (Health > 0)
         {
             enemyAudio.PlayOneShot(hitAudio);
@@ -284,8 +273,6 @@ public class Enemy : MonoBehaviour
 
         if (Health <= 0)
         {
-            // death audio here!!
-
             switch (enemyType)
             {
                 case EnemyType.carrot:
@@ -295,7 +282,7 @@ public class Enemy : MonoBehaviour
                     enemyAudio.PlayOneShot(deathAudio);
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1.5f);
                     break;
 
                 case EnemyType.broccoliParent:
@@ -312,7 +299,7 @@ public class Enemy : MonoBehaviour
 
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1.5f);
                     break;
 
                 case EnemyType.broccoliKid:
@@ -329,7 +316,7 @@ public class Enemy : MonoBehaviour
 
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1.5f);
                     break;
 
                 case EnemyType.broccoliBaby:
@@ -340,7 +327,7 @@ public class Enemy : MonoBehaviour
 
                     enemyAnimator.SetBool("isDead", true);
 
-                    Destroy(gameObject, 1.5f); // ADD DELAY TO THIS SO THAT THE ANIMATION CAN GO THROUG!!
+                    Destroy(gameObject, 1.5f);
                     break;
 
                 default:
@@ -466,6 +453,11 @@ public class Enemy : MonoBehaviour
         {
             closeEnoughToAttack = false;
         }
+    }
+
+    public void GameOver()
+    {
+        StopAllCoroutines();
     }
 }
 

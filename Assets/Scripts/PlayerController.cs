@@ -77,6 +77,20 @@ public class PlayerController : MonoBehaviour
         if (health<=0)
         {
             //dying animation here
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject[] cabbages = GameObject.FindGameObjectsWithTag("Cabbage");
+
+            foreach(GameObject enemy in enemies)
+            {
+                enemy.GetComponent<Enemy>().GameOver();
+            }
+
+            foreach(GameObject cabbage in cabbages)
+            {
+                cabbage.GetComponent<EnemyCabbage>().GameOver();
+            }
+
             Destroy(gameObject);
         }
         if (Input.GetKeyDown(KeyCode.LeftControl)&&!isShielding)
