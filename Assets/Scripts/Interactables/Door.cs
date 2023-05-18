@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
 {
     public bool isLocked = true;
     public SpriteRenderer sprite;
+    public int roomState = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,27 @@ public class Door : MonoBehaviour
     }
     public int GenerateRoom()
     {
-        return Random.Range(1, 4);
+        int roomNumber = 0;
+
+        switch (roomState)
+        {
+            case 0:
+                roomNumber = Random.Range(1, 3);
+                break;
+
+            case 1:
+                roomNumber = Random.Range(4, 6);
+                break;
+
+            case 2:
+                roomNumber = 7;
+                break;
+
+            default:
+                Debug.LogError("This door doesn't know where to go, you are lost. :(");
+                break;
+        }
+
+        return roomNumber;
     }
 }
