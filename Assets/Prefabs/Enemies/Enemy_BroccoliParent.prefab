@@ -246,6 +246,8 @@ MonoBehaviour:
   enemyAudio: {fileID: 4662344842009146365}
   hitAudio: {fileID: 8300000, guid: 05bcc8fc7b39ecb4a9343ab11e3eab03, type: 3}
   deathAudio: {fileID: 8300000, guid: 22288329fae778b4d89d9a7018c28e16, type: 3}
+  playerHit: {fileID: 8300000, guid: 9616afa8868d28a43970429628dc35e8, type: 3}
+  playerDie: {fileID: 8300000, guid: 551ebcbd4c6c84a4e8ccfa913889ee1d, type: 3}
   enemyAnimator: {fileID: 8868563430829251379}
 --- !u!195 &8868563430829251384
 NavMeshAgent:

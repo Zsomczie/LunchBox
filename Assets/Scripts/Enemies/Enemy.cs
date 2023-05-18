@@ -34,7 +34,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioSource enemyAudio;
     [SerializeField] private AudioClip hitAudio;
     [SerializeField] private AudioClip deathAudio;
-
+    [SerializeField] private AudioClip playerHit;
+    [SerializeField] private AudioClip playerDie;
+    private float pitch;
     // general private variables
 
     private Coroutine currentAttack;
@@ -51,6 +53,7 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
+        pitch = enemyAudio.pitch;
         enemyAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -239,7 +242,19 @@ public class Enemy : MonoBehaviour
         // attack animation here!!
         if (playerController.invincible==false)
         {
+
             playerController.health -= damage;
+            if (playerController.health > 0)
+            {
+                enemyAudio.pitch = 1.6f;
+                enemyAudio.PlayOneShot(playerHit);
+
+            }
+            else if (playerController.health <= 0)
+            {
+                enemyAudio.pitch = 1.6f;
+                enemyAudio.PlayOneShot(playerDie);
+            }
             RestartAttack();
             StartCoroutine(playerInvincibility());
             
@@ -253,6 +268,7 @@ public class Enemy : MonoBehaviour
             playerController.invincible = true;
             yield return new WaitForSeconds(1f);
             playerController.invincible = false;
+            enemyAudio.pitch = pitch;
         }
     }
 

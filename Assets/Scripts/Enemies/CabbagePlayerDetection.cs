@@ -31,6 +31,7 @@ public class CabbagePlayerDetection : MonoBehaviour
                 playerController.invincible = true;
                 yield return new WaitForSeconds(1f);
                 playerController.invincible = false;
+                enemyCabbage.cabbageAudio.pitch = enemyCabbage.cabbagePitch;
             }
         }
         if (collision.gameObject.name.Contains("Bullet"))

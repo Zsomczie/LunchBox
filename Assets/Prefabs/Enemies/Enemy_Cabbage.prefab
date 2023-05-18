@@ -272,6 +272,9 @@ MonoBehaviour:
   cabbageAudio: {fileID: -2680094543395961313}
   hitAudio: {fileID: 8300000, guid: 956f2143b55478143b69878a1e86c4c5, type: 3}
   deathAudio: {fileID: 8300000, guid: 5efc454935fe389489f856b358c2e8d1, type: 3}
+  playerHit: {fileID: 8300000, guid: 9616afa8868d28a43970429628dc35e8, type: 3}
+  playerDie: {fileID: 8300000, guid: 551ebcbd4c6c84a4e8ccfa913889ee1d, type: 3}
+  cabbagePitch: 0
   rb: {fileID: 0}
   enemyAnimator: {fileID: 3523738284353955033}
 --- !u!50 &3523738284353955038
