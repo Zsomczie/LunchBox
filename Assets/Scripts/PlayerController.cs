@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     
     // variable to hold a reference to our SpriteRenderer component
     private SpriteRenderer Player;
+    [SerializeField] private SpriteRenderer hat;
 
     // This function is called just one time by Unity the moment the component loads
     public Animator playerAnimator;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         Player = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
         shooting = GetComponentInChildren<Shooting>();
+        hat = GameObject.Find("Hat").GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
     void Update()
@@ -99,19 +101,23 @@ public class PlayerController : MonoBehaviour
     }
     void CharacterRotation()
     {
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.D))
             {
                 if (Player != null)
                 {
                     // flip the sprite
                     //flipping animation here
                     Player.flipX = true;
+                hat.flipX = true;
+                hat.transform.position = new Vector3(-hat.transform.position.x, hat.transform.position.y, hat.transform.position.z);
                 }
             }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
             //reverse flipping animation here
             Player.flipX = false;
+            hat.flipX = false;
+            hat.transform.position = new Vector3(-hat.transform.position.x, hat.transform.position.y, hat.transform.position.z);
         }
     }
 }
