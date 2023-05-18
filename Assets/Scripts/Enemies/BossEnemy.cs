@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossEnemy : MonoBehaviour
 {
     [Header("Health & Damage")]
     [SerializeField] private float health;
     [SerializeField] private float damage;
+
+    [Header("Game Over")]
+    [SerializeField] private SpriteRenderer fadeObject;
 
     private Shooting shooting;
     private Coroutine currentFire;
@@ -45,7 +49,9 @@ public class BossEnemy : MonoBehaviour
                 currentFire = StartCoroutine(OnFire());
             }
 
-            Destroy(collision.gameObject);
+            StartCoroutine(FadeToCredits());
+
+            GetComponent<SpriteRenderer>().enabled = false;
         }  
     }
 
@@ -57,5 +63,31 @@ public class BossEnemy : MonoBehaviour
         health -= 0.1f;
         yield return new WaitForSeconds(0.5f);
         health -= 0.1f;
+    }
+
+    private IEnumerator FadeToCredits()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        bool fading = true;
+
+        Color fadeState = fadeObject.color;
+
+        while (fading)
+        {
+            fadeState = new Color(0, 0, 0, fadeState.a + 0.01f);
+            fadeObject.color = fadeState;
+            
+            if(fadeObject.color.a >= 1)
+            {
+                fading = false;
+            }
+
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        SceneManager.LoadScene("Credits");
     }
 }
