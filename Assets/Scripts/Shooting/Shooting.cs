@@ -46,6 +46,18 @@ public class Shooting : MonoBehaviour
     public int currentMagAmmo;
     public bool reloading;
     public bool empty=false;
+    [SerializeField] private AudioSource gun;
+    [SerializeField] private AudioSource gunFry;
+    [SerializeField] private AudioClip shotgunShoot;
+    [SerializeField] private AudioClip shotgunReload;
+    [SerializeField] private AudioClip beamShoot;
+    [SerializeField] private AudioClip starShoot;
+    [SerializeField] private AudioClip akShoot;
+    [SerializeField] private AudioClip akReload;
+    [SerializeField] private AudioClip flyShoot;
+    [SerializeField] private AudioClip flyReload;
+    [SerializeField] private AudioClip pistolShoot;
+    [SerializeField] private AudioClip pistolReload;
     Quaternion offset = Quaternion.Euler(0, 0, 30);
     PlayerController player;
     bool right = true;
@@ -53,6 +65,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] SpriteResolver sprite;
     bool alreadyChanged = false;
     public Vector2 mousePosV2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,22 +94,22 @@ public class Shooting : MonoBehaviour
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mousePosV2 = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x)*Mathf.Rad2Deg;
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
         if (!canFire)
         {
             timer += Time.deltaTime;
-            if (timer>equippedWeapon.FiringTime)
+            if (timer > equippedWeapon.FiringTime)
             {
                 canFire = true;
                 timer = 0;
             }
         }
         //Debug.Log(equippedWeapon.damage);
-        if (Input.mouseScrollDelta.y<0)
+        if (Input.mouseScrollDelta.y < 0)
         {
             weaponDatas[weaponNumber] = equippedWeapon;
-            if (weaponNumber==weaponDatas.Count-1)
+            if (weaponNumber == weaponDatas.Count - 1)
             {
                 weaponNumber = 0;
             }
@@ -104,16 +117,16 @@ public class Shooting : MonoBehaviour
             {
                 weaponNumber++;
             }
-            
+
             equippedWeapon = weaponDatas[weaponNumber];
             alreadyChanged = false;
             //currentMagAmmo = equippedWeapon.magCapacity;
         }
 
-        if (Input.mouseScrollDelta.y>0)
+        if (Input.mouseScrollDelta.y > 0)
         {
             weaponDatas[weaponNumber] = equippedWeapon;
-            if (weaponNumber==0)
+            if (weaponNumber == 0)
             {
                 weaponNumber = weaponDatas.Count - 1;
             }
@@ -125,11 +138,27 @@ public class Shooting : MonoBehaviour
             alreadyChanged = false;
             //currentMagAmmo = equippedWeapon.magCapacity;
         }
-        if (Input.GetKeyDown(KeyCode.R) && currentMagAmmo != equippedWeapon.magCapacity && equippedWeapon.weaponType != "beam"&&!reloading
-            || Input.GetMouseButtonDown(0) && equippedWeapon.currentAmmo == 0 && !reloading && equippedWeapon.weaponType != "beam"&&empty)
+        if (Input.GetKeyDown(KeyCode.R) && currentMagAmmo != equippedWeapon.magCapacity && equippedWeapon.weaponType != "beam" && !reloading
+            || Input.GetMouseButtonDown(0) && equippedWeapon.currentAmmo == 0 && !reloading && equippedWeapon.weaponType != "beam" && empty)
         {
             IEnumerator reload()
+            {
+                if (equippedWeapon.weaponName == "Banana")
                 {
+                    gun.PlayOneShot(pistolReload);
+                }
+                else if (equippedWeapon.weaponName == "Corn")
+                {
+                    gun.PlayOneShot(shotgunReload);
+                }
+                else if (equippedWeapon.weaponName == "Banak")
+                {
+                    gun.PlayOneShot(akReload);
+                }
+                else if (equippedWeapon.weaponName == "Fruitfly")
+                {
+                    gun.PlayOneShot(flyReload);
+                }
                 reloading = true;
                 yield return new WaitForSeconds(equippedWeapon.reloadTime);
                 equippedWeapon.currentAmmo = equippedWeapon.magCapacity;
@@ -137,9 +166,133 @@ public class Shooting : MonoBehaviour
                 empty = false;
             }
             StartCoroutine(reload());
-            
-        }
 
+        }
+        if (Input.GetMouseButtonDown(0) && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
+        {
+            if (equippedWeapon.weaponName == "Lemon")
+            {
+                StartCoroutine(waitForStop());
+                IEnumerator waitForStop()
+                {
+                    gun.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(4.8f);
+                    gunFry.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(0.2f);
+                    gun.Stop();
+                    yield return new WaitForSeconds(4.8f);
+                    gun.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(0.2f);
+                    gunFry.Stop();
+                    yield return new WaitForSeconds(4.8f);
+                    gunFry.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(0.2f);
+                    gun.Stop();
+                    yield return new WaitForSeconds(4.8f);
+                    gun.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(0.2f);
+                    gunFry.Stop();
+                    yield return new WaitForSeconds(4.8f);
+                    gunFry.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(0.2f);
+                    gun.Stop();
+                    yield return new WaitForSeconds(4.8f);
+                    gun.PlayOneShot(beamShoot);
+                    yield return new WaitForSeconds(0.2f);
+                    gunFry.Stop();
+                    
+                    //gun.PlayOneShot(beamShoot);
+                    
+                }
+
+                if (Input.GetMouseButtonUp(0))
+                {
+                    StopCoroutine(waitForStop());
+                    gun.Stop();
+                    gunFry.Stop();
+
+                }
+
+
+            }
+        }
+        if (Input.GetMouseButton(0) && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
+        {
+
+            if (equippedWeapon.weaponName == "Banak")
+            {
+                gun.PlayOneShot(akShoot);
+                IEnumerator waitForNext()
+                {
+                    yield return new WaitForSeconds(equippedWeapon.FiringTime);
+                    //gun.PlayOneShot(akShoot);
+                }
+                StartCoroutine(waitForNext());
+                if (Input.GetMouseButtonUp(0))
+                {
+                    gun.Stop();
+                }
+
+            }
+            else if (equippedWeapon.weaponName == "Corn")
+            {
+                gun.PlayOneShot(shotgunShoot);
+                IEnumerator waitForNext()
+                {
+                    yield return new WaitForSeconds(equippedWeapon.FiringTime);
+                    //gun.PlayOneShot(shotgunShoot);
+                }
+                StartCoroutine(waitForNext());
+                if (Input.GetMouseButtonUp(0))
+                {
+                    gun.Stop();
+                }
+            }
+            else if (equippedWeapon.weaponName == "Banana")
+            {
+                gun.PlayOneShot(pistolShoot);
+                IEnumerator waitForNext()
+                {
+                    yield return new WaitForSeconds(equippedWeapon.FiringTime);
+                    //gun.PlayOneShot(pistolShoot);
+                }
+                StartCoroutine(waitForNext());
+                if (Input.GetMouseButtonUp(0))
+                {
+                    gun.Stop();
+                }
+            }
+            else if (equippedWeapon.weaponName == "Starfruit")
+            {
+
+                IEnumerator waitForNext()
+                {
+                    yield return new WaitForSeconds(0.2f);
+                    gun.PlayOneShot(starShoot);
+                    yield return new WaitForSeconds(equippedWeapon.FiringTime);
+                    //gun.PlayOneShot(starShoot);
+                }
+                StartCoroutine(waitForNext());
+                if (!Input.GetMouseButtonUp(0))
+                {
+                    gun.Stop();
+                }
+            }
+            else if (equippedWeapon.weaponName == "Fruitfly")
+            {
+                gun.PlayOneShot(flyShoot);
+                IEnumerator waitForNext()
+                {
+                    yield return new WaitForSeconds(equippedWeapon.FiringTime);
+                    //gun.PlayOneShot(starShoot);
+                }
+                StartCoroutine(waitForNext());
+                if (Input.GetMouseButtonUp(0))
+                {
+                    gun.Stop();
+                }
+            }
+        }
         if (Input.GetMouseButton(0) && equippedWeapon.weaponType == "shotgun" && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
         {
             canFire = false;
@@ -162,22 +315,24 @@ public class Shooting : MonoBehaviour
                 StartCoroutine(setEmpty());
             }
         }
-        else if (Input.GetMouseButton(0) && canFire && equippedWeapon.currentAmmo != 0&&!reloading)
+        else if (Input.GetMouseButton(0) && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
         {
+
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             equippedWeapon.currentAmmo--;
-            IEnumerator setEmpty() 
+            IEnumerator setEmpty()
             {
                 yield return new WaitForSeconds(0.1f);
                 empty = true;
             }
-            if (equippedWeapon.currentAmmo==0)
+            if (equippedWeapon.currentAmmo == 0)
             {
                 StartCoroutine(setEmpty());
             }
         }
-        if (mousePos.x>player.transform.position.x&&left)
+       
+        if (mousePos.x > player.transform.position.x && left)
         {
             gunTransform.gameObject.GetComponent<SpriteRenderer>().flipX = false;
             gunTransform.position = rightHand.position;
@@ -187,7 +342,7 @@ public class Shooting : MonoBehaviour
             left = false;
             right = true;
         }
-        else if (mousePos.x<player.transform.position.x&&right)
+        else if (mousePos.x < player.transform.position.x && right)
         {
             gunTransform.gameObject.GetComponent<SpriteRenderer>().flipX = true;
             gunTransform.position = leftHand.position;
@@ -197,7 +352,7 @@ public class Shooting : MonoBehaviour
             right = false;
             left = true;
         }
-        
+    
     }
     private void OnLevelWasLoaded(int level)
     {
