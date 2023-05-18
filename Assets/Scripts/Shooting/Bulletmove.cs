@@ -16,6 +16,8 @@ public class Bulletmove : MonoBehaviour
     [SerializeField] SpriteResolver sprite;
     bool fruitFly = false;
     bool rotatedAlready = false;
+    [SerializeField] private AudioSource fly;
+    [SerializeField] private AudioClip flyShoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,7 @@ public class Bulletmove : MonoBehaviour
         {
             
             sprite.SetCategoryAndLabel("AmmoTypes", "Fruitfly" + FruitFlyAmmo());
-            
+            fly.PlayOneShot(flyShoot);
             fruitFly = true;
             //rb.velocity = new Vector2(direction.x, direction.y).normalized * randomizeSpeed();
             Destroy(gameObject, 3f);

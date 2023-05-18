@@ -54,7 +54,6 @@ public class Shooting : MonoBehaviour
     [SerializeField] private AudioClip starShoot;
     [SerializeField] private AudioClip akShoot;
     [SerializeField] private AudioClip akReload;
-    [SerializeField] private AudioClip flyShoot;
     [SerializeField] private AudioClip flyReload;
     [SerializeField] private AudioClip pistolShoot;
     [SerializeField] private AudioClip pistolReload;
@@ -278,20 +277,7 @@ public class Shooting : MonoBehaviour
                     gun.Stop();
                 }
             }
-            else if (equippedWeapon.weaponName == "Fruitfly")
-            {
-                gun.PlayOneShot(flyShoot);
-                IEnumerator waitForNext()
-                {
-                    yield return new WaitForSeconds(equippedWeapon.FiringTime);
-                    //gun.PlayOneShot(starShoot);
-                }
-                StartCoroutine(waitForNext());
-                if (Input.GetMouseButtonUp(0))
-                {
-                    gun.Stop();
-                }
-            }
+
         }
         if (Input.GetMouseButton(0) && equippedWeapon.weaponType == "shotgun" && canFire && equippedWeapon.currentAmmo != 0 && !reloading)
         {
