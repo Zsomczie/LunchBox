@@ -914,7 +914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add awesome dialogue here!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aa3e865e27bae7943bb9d03a4dd9b050, type: 2}
   m_sharedMaterial: {fileID: -847363021795930749, guid: aa3e865e27bae7943bb9d03a4dd9b050, type: 2}
