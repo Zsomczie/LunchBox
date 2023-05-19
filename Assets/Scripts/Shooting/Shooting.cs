@@ -189,6 +189,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && equippedWeapon.weaponName == "Lemon"&&firePlaying)
         {
             gun.Stop();
+            firePlaying = false;
         }
 
         //IEnumerator waitForStop()
