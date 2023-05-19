@@ -76,11 +76,19 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
 
-            HandleTags(currentStory.currentTags);
+            StartCoroutine(WaitLittle());
 
-            DisplayChoices();
+            IEnumerator WaitLittle()
+            {
+                yield return new WaitForSeconds(1f);
+
+                dialogueText.text = currentStory.Continue();
+
+                HandleTags(currentStory.currentTags);
+
+                DisplayChoices();
+            }
         }
 
         else
@@ -186,7 +194,7 @@ public class DialogueManager : MonoBehaviour
 
                         case "racist":
                             //potatoNameText.text = "The " + "Talking" + "Racist Potato";
-                            potatoNameText.text = "The Racist Potato";
+                            potatoNameText.text = "The " + "<s>Talking</s> " + "<b>Racist </b>" + "Potato";
                             break;
                     }
                     break;
@@ -204,8 +212,8 @@ public class DialogueManager : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueText.text = "";
 
-            dialogueCanvas.SetActive(false);
             SceneManager.LoadScene("Main");
+            dialogueCanvas.SetActive(false);
         }
         StartCoroutine(playGame());
     }

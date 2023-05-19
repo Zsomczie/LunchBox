@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreditsRoll : MonoBehaviour
 {
@@ -8,9 +9,25 @@ public class CreditsRoll : MonoBehaviour
 
     [SerializeField] Vector3 move = new Vector3(0, 5, 0);
 
-    // Update is called once per frame
+    private RectTransform rectTransform;
+
+    private void Awake()
+    {
+        DestroyImmediate(GameObject.Find("Player"));
+    }
+
+    private void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
     void Update()
     {
         transform.Translate(move);
+
+        if(transform.position.y > 9000)
+        {
+            rectTransform.anchoredPosition = new Vector2(0f, -1200f);
+        }
     }
 }
