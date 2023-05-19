@@ -41,6 +41,8 @@ public class Shooting : MonoBehaviour
     private float timer;
     public float timeBetweenFiring= 0.5f;
     public int weaponNumber=2;
+    //public int previousWeaponNumber = 1;
+    //public int nextWeaponNumber = 3;
     public List<weaponData> weaponDatas = new List<weaponData>();
     public weaponData equippedWeapon;
     public int currentMagAmmo;
@@ -112,10 +114,14 @@ public class Shooting : MonoBehaviour
             if (weaponNumber == weaponDatas.Count - 1)
             {
                 weaponNumber = 0;
+                //nextWeaponNumber = 1;
+                //previousWeaponNumber = weaponDatas.Count-1;
             }
             else
             {
                 weaponNumber++;
+                //nextWeaponNumber++;
+                //previousWeaponNumber++;
             }
 
             equippedWeapon = weaponDatas[weaponNumber];
@@ -129,10 +135,14 @@ public class Shooting : MonoBehaviour
             if (weaponNumber == 0)
             {
                 weaponNumber = weaponDatas.Count - 1;
+                //previousWeaponNumber = weaponDatas.Count - 2;
+                //nextWeaponNumber = 0;
             }
             else
             {
                 weaponNumber--;
+                //nextWeaponNumber--;
+                //previousWeaponNumber--;
             }
             equippedWeapon = weaponDatas[weaponNumber];
             alreadyChanged = false;
