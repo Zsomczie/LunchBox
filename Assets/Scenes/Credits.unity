@@ -734,8 +734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40bff5005afe0564aad700730c30a890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: {fileID: 0}
-  move: {x: 0, y: 0.16, z: 0}
+  credits: {fileID: 1197867695}
+  move: {x: 0, y: 2.5, z: 0}
 --- !u!224 &1353264640 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8484098808059200086, guid: df60e175754643a4ea596e2f3452f306, type: 3}

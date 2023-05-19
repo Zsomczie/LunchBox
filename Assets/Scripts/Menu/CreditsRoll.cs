@@ -21,11 +21,11 @@ public class CreditsRoll : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         transform.Translate(move);
 
-        if(transform.position.y > 9000)
+        if (transform.position.y > 9000)
         {
             rectTransform.anchoredPosition = new Vector2(0f, -1200f);
         }
