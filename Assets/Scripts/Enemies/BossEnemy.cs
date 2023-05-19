@@ -72,6 +72,7 @@ public class BossEnemy : MonoBehaviour
         bool fading = true;
 
         Color fadeState = fadeObject.color;
+        Destroy(playerController.gameObject);
 
         while (fading)
         {
