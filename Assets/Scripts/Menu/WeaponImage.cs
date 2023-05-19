@@ -19,7 +19,23 @@ public class WeaponImage : MonoBehaviour
     void Update()
     {
         weapon.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.equippedWeapon.weaponName);
-        //weapon1.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.weaponDatas[shooting.weaponNumber - 1].weaponName);
+
+        if (shooting.weaponNumber==shooting.weaponDatas.Count-1)
+        {
+            weapon1.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.weaponDatas[0].weaponName);
+        }
+        else
+        {
+            weapon1.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.weaponDatas[shooting.weaponNumber+1].weaponName);
+        }
+        if (shooting.weaponNumber == 0)
+        {
+            weapon2.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.weaponDatas[shooting.weaponDatas.Count-1].weaponName);
+        }
+        else
+        {
+            weapon2.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.weaponDatas[shooting.weaponNumber - 1].weaponName);
+        }
         //weapon2.GetComponent<Image>().sprite = aimer.GetComponent<SpriteLibrary>().spriteLibraryAsset.GetSprite("Weapons", shooting.weaponDatas[shooting.weaponNumber+1].weaponName);
         //weapon2.GetComponent<Image>().sprite = aimer.GetComponent<SpriteRenderer>().sprite;
     }
