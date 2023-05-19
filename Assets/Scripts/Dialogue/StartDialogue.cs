@@ -14,7 +14,7 @@ public class StartDialogue : MonoBehaviour
 
     private IEnumerator DelayBeforeDialogue()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.01f);
 
         DialogueManager.GetInstance().StartDialogue(inkJSON);
     }

@@ -52,7 +52,7 @@ public class QuestManager : MonoBehaviour
 
         else
         {
-            Debug.LogError("Current kill did not count for the quest progress.");
+            // what happens if the kill did not count for the quest
         }
     }
 }

@@ -35,15 +35,20 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger enter");
-
         if (collision.transform.name.Contains("Player")&&!isLocked)
         {
+            Debug.Log("player entered");
+
             roomNumber = GenerateRoom();
 
             if (roomNumber >= 0)
             {
+                Debug.Log("going to new room");
+
                 player.transform.position = playerSpawnPoint.transform.position;
+
+                Debug.Log("new position found");
+
                 SceneManager.LoadScene("Room" + roomNumber);
             }
 

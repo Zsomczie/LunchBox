@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Health")]
     public float Health;
+    private bool isDead;
 
     [Header("For Broccoli Only")]
     [SerializeField] private GameObject kidPrefab;
@@ -43,6 +44,7 @@ public class Enemy : MonoBehaviour
     private Coroutine currentMovementDelay;
     private PlayerController playerController;
     private SpriteRenderer spriteRenderer;
+    private Transform shadow;
     private NavMeshAgent navMeshAgent;
 
     //for damage taking purposes
@@ -62,6 +64,7 @@ public class Enemy : MonoBehaviour
         shooting = GameObject.Find("RotatePoint").GetComponent<Shooting>();
         if (enemyType == EnemyType.carrot)
         {
+            shadow = transform.GetChild(0);
             SetNewDestination();
             currentMovementDelay = StartCoroutine(DestinationChangeDelay());
         }
@@ -120,11 +123,21 @@ public class Enemy : MonoBehaviour
         if(newDirection.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
+
+            //if(enemyType == EnemyType.carrot)
+            //{
+            //    shadow.position = new Vector3(1f, -0.9f);
+            //}
         }
 
         else
         {
             spriteRenderer.flipX = false;
+
+            //if (enemyType == EnemyType.carrot)
+            //{
+            //    shadow.position = new Vector3(-1f, -0.9f);
+            //}
         }
 
         navMeshAgent.SetDestination(newDirection);
@@ -203,7 +216,7 @@ public class Enemy : MonoBehaviour
         navMeshAgent.isStopped = false;
         targetPosition = player.transform.position;
 
-        while (isAttacking)
+        while (isAttacking && !isDead)
         {
             targetPosition = player.transform.position;
             navMeshAgent.SetDestination(targetPosition);
@@ -277,8 +290,9 @@ public class Enemy : MonoBehaviour
             {
                 case EnemyType.carrot:
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.carrot, 1);
-                    
-                    navMeshAgent.isStopped = true;
+
+                    isDead = true;
+                    navMeshAgent.SetDestination(transform.position);
                     enemyAudio.PlayOneShot(deathAudio);
                     enemyAnimator.SetBool("isDead", true);
 
@@ -295,7 +309,8 @@ public class Enemy : MonoBehaviour
 
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
-                    navMeshAgent.isStopped = true;
+                    isDead = true;
+                    navMeshAgent.SetDestination(transform.position);
 
                     enemyAnimator.SetBool("isDead", true);
 
@@ -312,7 +327,8 @@ public class Enemy : MonoBehaviour
 
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
-                    navMeshAgent.isStopped = true;
+                    isDead = true;
+                    navMeshAgent.SetDestination(transform.position);
 
                     enemyAnimator.SetBool("isDead", true);
 
@@ -323,7 +339,8 @@ public class Enemy : MonoBehaviour
                     enemyAudio.PlayOneShot(deathAudio);
                     QuestManager.GetInstance().UpdateQuestProgress(KillQuestTarget.broccoli, 1);
 
-                    navMeshAgent.isStopped = true;
+                    isDead = true;
+                    navMeshAgent.SetDestination(transform.position);
 
                     enemyAnimator.SetBool("isDead", true);
 
