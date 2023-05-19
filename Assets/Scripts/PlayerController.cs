@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     //variables for animation purposes
     public float horizontalMove;
     public float verticalMove;
-    private void Awake()
+    private void Start()
     {
         gameObject.name = "Player";
         // get a reference to the SpriteRenderer component on this gameObject

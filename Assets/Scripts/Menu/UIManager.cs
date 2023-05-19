@@ -62,5 +62,9 @@ public class UIManager : MonoBehaviour
         {
             heal1.GetComponent<Image>().sprite = HealthSprites[0];
         }
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            Application.Quit();
+        }
     }
 }
