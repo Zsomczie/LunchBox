@@ -41,6 +41,7 @@ public class Bulletmove : MonoBehaviour
         else if (shooting.equippedWeapon.weaponType=="shotgun")
         {
             sprite.SetCategoryAndLabel("AmmoTypes", "Corn" + CornAmmo());
+            gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
             rb.velocity = new Vector2(direction.x + offsetshotgun(), direction.y + offsetshotgun()).normalized * randomizeSpeed();
             Destroy(gameObject, RandomDestroyTimeShotgun());
         }

@@ -73,7 +73,8 @@ public class Shooting : MonoBehaviour
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         player = GetComponentInParent<PlayerController>();
-        string[] lines = File.ReadAllLines(Application.streamingAssetsPath + "/weaponinfo.txt");
+        string path = Application.streamingAssetsPath + "/weaponinfo.txt";
+        string[] lines = File.ReadAllLines(path);
         foreach (var line in lines)
         {
             string[] oneLine = line.Split();
