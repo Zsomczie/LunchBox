@@ -123,21 +123,11 @@ public class Enemy : MonoBehaviour
         if(newDirection.x > transform.position.x)
         {
             spriteRenderer.flipX = true;
-
-            //if(enemyType == EnemyType.carrot)
-            //{
-            //    shadow.position = new Vector3(1f, -0.9f);
-            //}
         }
 
         else
         {
             spriteRenderer.flipX = false;
-
-            //if (enemyType == EnemyType.carrot)
-            //{
-            //    shadow.position = new Vector3(-1f, -0.9f);
-            //}
         }
 
         navMeshAgent.SetDestination(newDirection);

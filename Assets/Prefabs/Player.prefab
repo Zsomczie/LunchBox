@@ -149,9 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7d6ccc931495847bc7322156eb5174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthText: {fileID: 1581317367}
   KeyText: {fileID: 1289987128}
   magText: {fileID: 1427560366}
+  HealthSprites: []
+  heal1: {fileID: 0}
+  heal2: {fileID: 0}
+  heal3: {fileID: 0}
+  heal4: {fileID: 0}
 --- !u!1 &712345285
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +727,7 @@ SpriteRenderer:
   m_SortingLayerID: -1866460405
   m_SortingLayer: 1
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 1050b35b69cc8fa43b093254e1332ed4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46307b465575ae444a6ee9a12a56e6a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -783,7 +787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CategoryHash: 4.7515827e-21
   m_labelHash: 1.9676202e-36
-  m_SpriteKey: 0.0048459764
+  m_SpriteKey: 2.3143479e-29
 --- !u!1 &1861173206
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,18 +951,26 @@ MonoBehaviour:
   canFire: 1
   timeBetweenFiring: 0
   weaponNumber: 2
+  weaponDatas: []
+  equippedWeapon:
+    weaponName: 
+    weaponType: 
+    magCapacity: 0
+    maxAmmo: 0
+    FiringTime: 0
+    damage: 0
+    reloadTime: 0
+    currentAmmo: 0
   currentMagAmmo: 0
   reloading: 0
   empty: 0
   gun: {fileID: 7344479489743311960}
-  gunFry: {fileID: 4526048391033410191}
   shotgunShoot: {fileID: 8300000, guid: c0c1174fc7c31dc47bc94ef20ee7b5b5, type: 3}
   shotgunReload: {fileID: 8300000, guid: 3b47154c1dce4544aadaa0a77b10d9b9, type: 3}
   beamShoot: {fileID: 8300000, guid: e6282570141c7f34580836b70846ee30, type: 3}
   starShoot: {fileID: 8300000, guid: 61b83f0449f0b6f45af1af5464489245, type: 3}
   akShoot: {fileID: 8300000, guid: 7fb6535758e6d4b4aad69a016f485b93, type: 3}
   akReload: {fileID: 8300000, guid: 11c093700b7acef49914a77270a63354, type: 3}
-  flyShoot: {fileID: 8300000, guid: c35456be62c35164fa5c85792359faa2, type: 3}
   flyReload: {fileID: 8300000, guid: 9404ba25aec9ffb4a81b9ae1e83aefdb, type: 3}
   pistolShoot: {fileID: 8300000, guid: a6c140ac4fe57304fbfa743ee543007b, type: 3}
   pistolReload: {fileID: 8300000, guid: 5702b544bd46295419daf9942a3a2d20, type: 3}

@@ -9,7 +9,8 @@ using UnityEngine.U2D.Animation;
 
 public class Shooting : MonoBehaviour
 {
-    public struct weaponData
+    [System.Serializable]
+    [SerializeField]public struct weaponData
     {
         public string weaponName;
         public string weaponType;
